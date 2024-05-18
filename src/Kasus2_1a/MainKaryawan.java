@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 class Karyawan {
-    private String nama;
-    private String alamat;
-    private String noHP;
-    private String jenisKelamin;
-    private String kategori;
+    private final String nama;
+    private final String alamat;
+    private final String noHP;
+    private final String jenisKelamin;
+    private final String kategori;
 
     public Karyawan(String nama, String alamat, String noHP, String jenisKelamin, String kategori) {
         this.nama = nama;
