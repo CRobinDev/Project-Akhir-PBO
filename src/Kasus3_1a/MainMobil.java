@@ -30,22 +30,23 @@ public class MainMobil {
         int counter = 1;
 
         System.out.println("Selamat Datang di Aplikasi Filkom Tour & Travel");
+
         boolean loop = true;
 
         while (loop) {
             System.out.println("-------------------------------------------------------");
             System.out.println("Masukkan data mobil ke-" + counter);
 
-            System.out.print("Nomor Plat          : ");
+            System.out.print("Nomor Plat           : ");
             String noPlat = input.nextLine();
 
-            System.out.print("Merk Mobil          : ");
+            System.out.print("Merk Mobil           : ");
             String merkMobil = input.nextLine();
 
-            System.out.print("Warna Mobil         : ");
+            System.out.print("Warna Mobil          : ");
             String warnaMobil = input.nextLine();
 
-            System.out.print("Tahun Keluaran Mobil: ");
+            System.out.print("Tahun Keluaran Mobil : ");
             int tahunKeluaranMobil = input.nextInt();
             input.nextLine();  // Consume newline
 
