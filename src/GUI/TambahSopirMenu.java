@@ -242,7 +242,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             writer.write("Jenis Kelamin : " + jenisKelamin + "\n");
             writer.write("Lisensi       : " + lisensi + "\n");
             writer.write("Jenis Mobil   : " + jenisMobil + "\n");
-            writer.write("Rute          : " + rute + "\n");
+            if(jenisMobil.equals("Travel") || jenisMobil.equals("Rentcar")) writer.write("Rute          : " + rute + "\n");
             writer.write("Status        : Available\n\n");
 
             writer2.write("Nama          : " + nama + "\n");
@@ -251,7 +251,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             writer2.write("Jenis Kelamin : " + jenisKelamin + "\n");
             writer2.write("Lisensi       : " + lisensi + "\n");
             writer2.write("Jenis Mobil   : " + jenisMobil + "\n");
-            writer2.write("Rute          : " + rute + "\n");
+            if(jenisMobil.equals("Travel") || jenisMobil.equals("Rentcar"))writer2.write("Rute          : " + rute + "\n");
             writer2.write("Status        : Available\n\n");
 
         } catch (IOException e) {

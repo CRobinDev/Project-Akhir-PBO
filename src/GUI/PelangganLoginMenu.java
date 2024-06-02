@@ -15,6 +15,11 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
     /**
      * Creates new form PelangganLoginMenu
      */
+    public PelangganLoginMenu(String username) {
+        initComponents();
+        this.name = username;
+        // Inisialisasi komponen GUI lainnya
+    }
     public PelangganLoginMenu() {
         initComponents();
     }
@@ -130,7 +135,7 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SubmitAdminButtonActionPerformed
     private boolean validateUser(String username, String password) {
-        try (BufferedReader br = new BufferedReader(new FileReader("accounts.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("akun.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
