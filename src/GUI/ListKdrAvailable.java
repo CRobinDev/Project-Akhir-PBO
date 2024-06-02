@@ -105,13 +105,13 @@ public class ListKdrAvailable extends javax.swing.JFrame {
     }
 
     private void readDataKendaraan() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Kendaraan.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("kendaraan.txt"))) {
             StringBuilder kendaraan = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.isEmpty()) {
                     // Jika menemukan baris kosong, simpan data kendaraan sebelumnya
-                    addDataKendaraan(kendaraan.toString());
+                    addKendaraanIfAvailable(kendaraan.toString());
                     kendaraan = new StringBuilder(); // Bersihkan StringBuilder untuk data kendaraan baru
                 } else {
                     kendaraan.append(line).append("<br>");
@@ -119,16 +119,21 @@ public class ListKdrAvailable extends javax.swing.JFrame {
             }
             // Simpan data kendaraan terakhir setelah keluar dari loop
             if (kendaraan.length() > 0) {
-                addDataKendaraan(kendaraan.toString());
+                addKendaraanIfAvailable(kendaraan.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Gagal membaca data kendaraan.");
         }
     }
+    private void addKendaraanIfAvailable(String data) {
+        if (data.contains("Status        : Available")) {
+            addDataKendaraan(data);
+        }
+    }
 
     private void addDataKendaraan(String data) {
-        // Menambahkan data kendaraan ke array dataKendaraan
+
         if (dataKendaraan == null) {
             dataKendaraan = new String[]{data};
         } else {

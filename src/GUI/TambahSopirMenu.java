@@ -110,7 +110,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         jLabel8.setText("Rute");
 
         RuteTmbhSopir.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));
-        RuteTmbhSopir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SURABAYA-MALANG", "MADURA-MALANG", "BANYUWANGI-MALANG", "SITUBONDO-MALANG", "TULUNGAGUNG-MALANG" }));
+        RuteTmbhSopir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-","SURABAYA-MALANG", "MADURA-MALANG", "BANYUWANGI-MALANG", "SITUBONDO-MALANG", "TULUNGAGUNG-MALANG" }));
         jLabel8.setVisible(false);
         RuteTmbhSopir.setVisible(false);
         RuteTmbhSopir.addActionListener(new java.awt.event.ActionListener() {

@@ -10,12 +10,17 @@ import javax.swing.*;
 
 public class PelangganScreenMenu extends javax.swing.JFrame {
     private Map<String, ArrayList<String>> ruteToSopirMap;
+    private Map<String, ArrayList<String>> jenisToKendaraanMap;
     private String username;
+    private Map<String, String> nomorPlatToJenisMap = new HashMap<>();
     public PelangganScreenMenu(PelangganLoginMenu namaUser){
         setTitle("Pemesanan");
         initComponents();
         this.username = namaUser.getUsername();
         setLocationRelativeTo(null);
+        jenisToKendaraanMap = new HashMap<>();
+        readKendaraanData();
+        updateKendaraanComboBox();
         ruteToSopirMap = new HashMap<>();
         readSopirData();
         updateSopirComboBox();
@@ -39,14 +44,14 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
         PesananButton = new javax.swing.JButton();
         SubmitButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        SopirBox = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         TanggalSewa = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         LamaSewa = new javax.swing.JTextField();
-
-
+        jenisMobil = new javax.swing.JComboBox<>();
+        jenisMobilLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +61,11 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 24)); // NOI18N
         jLabel2.setText("Filkom Tour & Travel");
+
+        jenisMobilLabel.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        jenisMobilLabel.setText("Pilih Mobil");
+        jenisMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Mobil Pribadi", "Mini Bus", "Bus" }));
+        jenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
 
         jLabel7.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
         jLabel7.setText("Pilih Sopir");
@@ -133,7 +143,8 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
                                         .addComponent(jLabel11)
                                         .addComponent(jLabel9)
                                         .addComponent(jLabel7)
-                                        .addComponent(jLabel8))
+                                        .addComponent(jLabel8)
+                                        .addComponent(jenisMobilLabel))
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
@@ -143,12 +154,15 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
                                                                 .addGap(18, 18, 18)
                                                                 .addComponent(jLabel10)
                                                                 .addGap(42, 42, 42))
-                                                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(SopirBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(TanggalSewa))
                                                 .addGap(30, 30, 30))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(pelangganPilihRute, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jenisMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,8 +185,12 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
                                         .addComponent(pelangganPilihRute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jenisMobilLabel)
+                                        .addComponent(jenisMobil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel7)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(SopirBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel9)
@@ -226,7 +244,7 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TanggalSewaActionPerformed
     private void readSopirData() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Sopir.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("sopir.txt"))) {
             String line;
             String nama = null;
             String rute = null;
@@ -250,20 +268,64 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Gagal membaca data sopir.");
         }
     }
+    private void readKendaraanData() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("kendaraan.txt"))) {
+            String line;
+            String rute = null;
+            String jenis = null;
+            String nomorPlat = null;
+            String status = null;
+
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("Jenis         :")) {
+                    jenis = line.split(":")[1].trim();
+                } else if (line.startsWith("Nomor Plat    :")) {
+                    nomorPlat = line.split(":")[1].trim();
+                } else if (line.startsWith("Status        :")) {
+                    status = line.split(":")[1].trim();
+                } else if (line.startsWith("Rute          :")) {
+                    rute = line.split(":")[1].trim();
+                } else if (jenis != null && nomorPlat != null && status != null && status.equals("Available")) {
+                    jenisToKendaraanMap.computeIfAbsent(rute, k -> new ArrayList<>()).add(nomorPlat);
+                    nomorPlatToJenisMap.put(nomorPlat, jenis);
+                    System.out.println(rute);
+                    rute = null;
+                    jenis = null;
+                    nomorPlat = null;
+                    status = null;
+                }
+            }
+            System.out.println("Nomor Plat to Jenis Map: " + nomorPlatToJenisMap);
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Gagal membaca data kendaraan.");
+        }
+    }
+
     private void pelangganPilihRuteActionPerformed(java.awt.event.ActionEvent evt) {
+        updateKendaraanComboBox();
         updateSopirComboBox();
     }
+    private void updateKendaraanComboBox() {
+        jenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));
+        String selectedRute = (String) pelangganPilihRute.getSelectedItem();
+        ArrayList<String> kendaraanList = jenisToKendaraanMap.getOrDefault(selectedRute, new ArrayList<>());
+        jenisMobil.removeAllItems();
+        for (String kendaraan : kendaraanList) {
+            jenisMobil.addItem(kendaraan);
+        }
+    }
     private void updateSopirComboBox() {
-        jComboBox3.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));
+        SopirBox.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));
         String selectedRute = (String) pelangganPilihRute.getSelectedItem();
         ArrayList<String> sopirList = ruteToSopirMap.getOrDefault(selectedRute, new ArrayList<>());
-        jComboBox3.removeAllItems();
+        SopirBox.removeAllItems();
         for (String sopir : sopirList) {
-            jComboBox3.addItem(sopir);
+            SopirBox.addItem(sopir);
         }
     }
     private void updateDriverStatus(String driverName) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Sopir.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("sopir.txt"))) {
             StringBuilder fileContent = new StringBuilder();
             String line;
             boolean isDriverFound = false;
@@ -279,8 +341,8 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
                 fileContent.append(line).append("\n");
             }
 
-            // Write the updated content back to the file
-            try (FileWriter writer = new FileWriter("Sopir.txt", false)) {
+
+            try (FileWriter writer = new FileWriter("sopir.txt", false)) {
                 writer.write(fileContent.toString());
             }
         } catch (IOException e) {
@@ -288,14 +350,47 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Gagal memperbarui status sopir.");
         }
     }
+    private void updateKendaraanStatus(String nomorPlat) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("kendaraan.txt"))) {
+            StringBuilder fileContent = new StringBuilder();
+            String line;
+            boolean isKendaraanFound = false;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("Nomor Plat    :") && line.contains(nomorPlat)) {
+                    isKendaraanFound = true;
+                }
+
+                if (isKendaraanFound && line.startsWith("Status") && line.contains("Available")) {
+                    line = line.replace("Available", "Unavailable");
+                    isKendaraanFound = false;
+                }
+                fileContent.append(line).append("\n");
+            }
+
+            try (FileWriter writer = new FileWriter("kendaraan.txt", false)) {
+                writer.write(fileContent.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Gagal memperbarui status kendaraan.");
+        }
+    }
+
     private void savePemesananData() {
-        String nama = jComboBox3.getSelectedItem().toString();
+        String nama = SopirBox.getSelectedItem().toString();
         String lamaSewa = LamaSewa.getText();
         String tanggalPenyewaan = TanggalSewa.getText();
+        String rute = pelangganPilihRute.getSelectedItem().toString();
+        String nomorPlat = jenisMobil.getSelectedItem().toString();
+        String jenisMobil = nomorPlatToJenisMap.get(nomorPlat);
         updateDriverStatus(nama);
+        updateKendaraanStatus(nomorPlat);
         try (FileWriter writer = new FileWriter(username + ".txt", true)) {
-            writer.write("Username         : " + username + "\n"); // Simpan username
+            writer.write("Username         : " + username + "\n");
             writer.write("Nama Sopir       : " + nama + "\n");
+            writer.write("Jenis Mobil      : " + jenisMobil + "\n");
+            writer.write("Nomor Plat       : " + nomorPlat + "\n");
+            writer.write("Rute             : " + rute + "\n");
             writer.write("Lama Sewa        : " + lamaSewa + " hari\n");
             writer.write("Tanggal Penyewaan: " + tanggalPenyewaan + "\n\n");
 
@@ -330,7 +425,7 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
     private javax.swing.JButton PesananButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton SubmitButton;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> SopirBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -341,5 +436,7 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> pelangganPilihRute;
     private javax.swing.JTextField TanggalSewa;
     private javax.swing.JTextField LamaSewa;
+    private javax.swing.JLabel jenisMobilLabel;
+    private javax.swing.JComboBox<String> jenisMobil;
 
 }

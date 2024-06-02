@@ -130,10 +130,12 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
             StringBuilder sopir = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
+                if (line.contains("Status")) {
+                    continue;
+                }
                 if (line.isEmpty()) {
-                    // Jika menemukan baris kosong, simpan data sopir sebelumnya
                     addDataKaryawan(sopir.toString());
-                    sopir = new StringBuilder(); // Bersihkan StringBuilder untuk data sopir baru
+                    sopir = new StringBuilder();
                 } else {
                     sopir.append(line).append("<br>");
                 }
@@ -169,7 +171,7 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
             }
             formattedData.append("</pre></html>");
             jLabel3.setText(formattedData.toString());
-            jLabel3.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 16));
+            jLabel3.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         } else {
             jLabel3.setText("<html><h2>Data Karyawan Kosong</h2></html>");
         }

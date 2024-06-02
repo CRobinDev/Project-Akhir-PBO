@@ -42,8 +42,15 @@ public class TambahKdrMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        Rute = new javax.swing.JComboBox<>();
+        RuteLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        RuteLabel.setFont(new java.awt.Font("ITF Devanagari",1,18));
+        RuteLabel.setText("Rute");
+        Rute.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        Rute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-","SURABAYA-MALANG", "MADURA-MALANG", "BANYUWANGI-MALANG", "SITUBONDO-MALANG", "TULUNGAGUNG-MALANG"}));
 
         jLabel3.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -112,14 +119,16 @@ public class TambahKdrMenu extends javax.swing.JFrame {
                                                         .addComponent(jLabel1)
                                                         .addComponent(jLabel4)
                                                         .addComponent(jLabel8)
-                                                        .addComponent(jLabel5))
+                                                        .addComponent(jLabel5)
+                                                        .addComponent(RuteLabel))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(warnaField)
                                                         .addComponent(merkField, javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(nomorPlatField, javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 208, Short.MAX_VALUE)
-                                                        .addComponent(tahunField))
+                                                        .addComponent(tahunField)
+                                                        .addComponent(Rute, javax.swing.GroupLayout.Alignment.LEADING, 0, 208, Short.MAX_VALUE))
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(33, 33, 33))
         );
@@ -148,8 +157,12 @@ public class TambahKdrMenu extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel5)
                                         .addComponent(tahunField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(RuteLabel)
+                                        .addComponent(Rute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(jButton2)
                                         .addComponent(jButton1))
                                 .addGap(21, 21, 21))
@@ -181,13 +194,17 @@ public class TambahKdrMenu extends javax.swing.JFrame {
         String merk = merkField.getText();
         String warna = warnaField.getText();
         String tahun = tahunField.getText();
+        String rute = Rute.getSelectedItem().toString();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("kendaraan.txt", true))) {
             writer.write("Jenis         : " + jenis + "\n");
             writer.write("Nomor Plat    : " + nomorPlat + "\n");
             writer.write("Merk          : " + merk + "\n");
             writer.write("Warna         : " + warna + "\n");
-            writer.write("Tahun         : " + tahun + "\n\n");
+            writer.write("Tahun         : " + tahun + "\n");
+            writer.write("Rute          : " + rute + "\n");
+            writer.write("Status        : Available\n\n");
+
         } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Gagal menyimpan data kendaraan.");
@@ -250,5 +267,7 @@ public class TambahKdrMenu extends javax.swing.JFrame {
     private javax.swing.JTextField nomorPlatField;
     private javax.swing.JTextField warnaField;
     private javax.swing.JTextField tahunField;
+    private javax.swing.JLabel RuteLabel;
+    private javax.swing.JComboBox<String> Rute;
     // End of variables declaration//GEN-END:variables
 }

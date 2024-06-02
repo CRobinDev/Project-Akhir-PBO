@@ -154,7 +154,7 @@ public class PesananPelanggan extends javax.swing.JFrame {
             }
             formattedData.append("</pre></html>");
             Label.setText(formattedData.toString());
-            Label.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 16));
+            Label.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         } else {
             Label.setText("<html><h2>Data Pesanan Kosong</h2></html>");
         }

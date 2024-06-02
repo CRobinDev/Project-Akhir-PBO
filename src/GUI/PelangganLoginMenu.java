@@ -130,7 +130,6 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
             plgScMenu.setVisible(true);
             this.dispose();
         } else {
-            // If username or password is incorrect, display error message
             JOptionPane.showMessageDialog(this, "Incorrect username or password. Please try again.", "Login Failed", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SubmitAdminButtonActionPerformed
@@ -161,7 +160,7 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
         this.name = username;
     }
 
-    // Metode untuk mengambil username
+
     public String getUsername() {
         return name;
     }
