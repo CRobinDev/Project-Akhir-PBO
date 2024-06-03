@@ -24,7 +24,8 @@ public class RegisAkun extends javax.swing.JFrame {
         PasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        NameField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
+        PasswordField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         Judul.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 24)); // NOI18N
         Judul.setText("Registrasi Akun");
 
