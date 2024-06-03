@@ -99,7 +99,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         jLabel7.setText("Jenis Mobil");
 
         tmbhJenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
-        tmbhJenisMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Mobil Pribadi", "Travel" , "Rentcar"}));
+        tmbhJenisMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Mobil Pribadi", "Travel"}));
         tmbhJenisMobil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tmbhJenisMobilActionPerformed(evt);
@@ -242,7 +242,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             writer.write("Jenis Kelamin : " + jenisKelamin + "\n");
             writer.write("Lisensi       : " + lisensi + "\n");
             writer.write("Jenis Mobil   : " + jenisMobil + "\n");
-            if(jenisMobil.equals("Travel") || jenisMobil.equals("Rentcar")) writer.write("Rute          : " + rute + "\n");
+            writer.write("Rute          : " + rute + "\n");
             writer.write("Status        : Available\n\n");
 
             writer2.write("Nama          : " + nama + "\n");
@@ -251,7 +251,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             writer2.write("Jenis Kelamin : " + jenisKelamin + "\n");
             writer2.write("Lisensi       : " + lisensi + "\n");
             writer2.write("Jenis Mobil   : " + jenisMobil + "\n");
-            if(jenisMobil.equals("Travel") || jenisMobil.equals("Rentcar"))writer2.write("Rute          : " + rute + "\n");
+            writer2.write("Rute          : " + rute + "\n");
             writer2.write("Status        : Available\n\n");
 
         } catch (IOException e) {
@@ -264,14 +264,10 @@ public class TambahSopirMenu extends javax.swing.JFrame {
     }
 
     private void tmbhJenisMobilActionPerformed(java.awt.event.ActionEvent evt) {
-        if (tmbhJenisMobil.getSelectedItem().toString().equals("Travel") || tmbhJenisMobil.getSelectedItem().toString().equals("Rentcar")) {
-            jLabel8.setVisible(true);
-            RuteTmbhSopir.setVisible(true);
-        } else {
             jLabel8.setVisible(false);
             RuteTmbhSopir.setVisible(false);
         }
-    }
+
 
     /**
      * @param args the command line arguments
