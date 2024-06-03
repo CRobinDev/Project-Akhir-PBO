@@ -273,34 +273,38 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
             String line;
             String rute = null;
             String jenis = null;
+            String merk = null;
             String nomorPlat = null;
             String status = null;
 
             while ((line = reader.readLine()) != null) {
                 if (line.startsWith("Jenis         :")) {
                     jenis = line.split(":")[1].trim();
+                } else if (line.startsWith("Merk          :")) {
+                    merk = line.split(":")[1].trim();
                 } else if (line.startsWith("Nomor Plat    :")) {
                     nomorPlat = line.split(":")[1].trim();
                 } else if (line.startsWith("Status        :")) {
                     status = line.split(":")[1].trim();
                 } else if (line.startsWith("Rute          :")) {
                     rute = line.split(":")[1].trim();
-                } else if (jenis != null && nomorPlat != null && status != null && status.equals("Available")) {
-                    jenisToKendaraanMap.computeIfAbsent(rute, k -> new ArrayList<>()).add(nomorPlat);
-                    nomorPlatToJenisMap.put(nomorPlat, jenis);
-                    System.out.println(rute);
+                } else if (jenis != null && merk != null && nomorPlat != null && status != null && status.equals("Available")) {
+                    String jenisMerk = jenis + " " + merk;
+                    jenisToKendaraanMap.computeIfAbsent(rute, k -> new ArrayList<>()).add(jenisMerk + " - " + nomorPlat);
+                    nomorPlatToJenisMap.put(nomorPlat, jenisMerk);
                     rute = null;
                     jenis = null;
+                    merk = null;
                     nomorPlat = null;
                     status = null;
                 }
             }
-            System.out.println("Nomor Plat to Jenis Map: " + nomorPlatToJenisMap);
         } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Gagal membaca data kendaraan.");
         }
     }
+
 
     private void pelangganPilihRuteActionPerformed(java.awt.event.ActionEvent evt) {
         updateKendaraanComboBox();
@@ -381,14 +385,16 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
         String lamaSewa = LamaSewa.getText();
         String tanggalPenyewaan = TanggalSewa.getText();
         String rute = pelangganPilihRute.getSelectedItem().toString();
-        String nomorPlat = jenisMobil.getSelectedItem().toString();
-        String jenisMobil = nomorPlatToJenisMap.get(nomorPlat);
+        String kendaraanInfo = jenisMobil.getSelectedItem().toString();
+        String[] kendaraanParts = kendaraanInfo.split(" - ");
+        String jenisMerk = kendaraanParts[0];
+        String nomorPlat = kendaraanParts[1];
         updateDriverStatus(nama);
         updateKendaraanStatus(nomorPlat);
         try (FileWriter writer = new FileWriter(username + ".txt", true)) {
             writer.write("Username         : " + username + "\n");
             writer.write("Nama Sopir       : " + nama + "\n");
-            writer.write("Jenis Mobil      : " + jenisMobil + "\n");
+            writer.write("Jenis Mobil      : " + jenisMerk + "\n");
             writer.write("Nomor Plat       : " + nomorPlat + "\n");
             writer.write("Rute             : " + rute + "\n");
             writer.write("Lama Sewa        : " + lamaSewa + " hari\n");
@@ -401,6 +407,7 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Gagal menyimpan data pemesanan.");
         }
     }
+
     /**
      * @param args the command line arguments
      */

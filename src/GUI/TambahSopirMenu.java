@@ -264,8 +264,8 @@ public class TambahSopirMenu extends javax.swing.JFrame {
     }
 
     private void tmbhJenisMobilActionPerformed(java.awt.event.ActionEvent evt) {
-            jLabel8.setVisible(false);
-            RuteTmbhSopir.setVisible(false);
+            jLabel8.setVisible(true);
+            RuteTmbhSopir.setVisible(true);
         }
 
 
