@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
 
 /**
  *
  * @author dhani
  */
-public class welcomeScreen extends javax.swing.JFrame {
+public class WelcomeScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form welcomeScreen
      */
-    public welcomeScreen() {
+    public WelcomeScreen() {
         initComponents();
     }
 
@@ -26,6 +26,7 @@ public class welcomeScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         setTitle("Aplikasi Filkom Tour & Travel");
+
         AdminButton = new javax.swing.JButton();
         PelangganButton = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
@@ -106,7 +107,7 @@ public class welcomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_PelangganButtonActionPerformed
 
     private void DaftarAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event DaftarAkunActionPerformed
-        RegisAkun regis = new RegisAkun();
+        RegistrasiAkun regis = new RegistrasiAkun();
         regis.setVisible(true);
         this.dispose();
     }//GEN-LAST:event DaftarAkunActionPerformed
@@ -128,20 +129,20 @@ public class welcomeScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(welcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(welcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(welcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(welcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new welcomeScreen().setVisible(true);
+                new WelcomeScreen().setVisible(true);
 
             }
         });

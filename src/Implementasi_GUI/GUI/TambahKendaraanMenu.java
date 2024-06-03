@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
 import javax.swing.*;
-import java.io.*;
+import Implementasi_GUI.Class.Kendaraan;
+import Implementasi_GUI.Class.RuteTravel;
 
 /**
  * @author dhani
  */
-public class TambahKdrMenu extends javax.swing.JFrame {
-
+public class TambahKendaraanMenu extends javax.swing.JFrame {
     /**
      * Creates new form TambahKdrMenu
      */
-    public TambahKdrMenu() {
+    public TambahKendaraanMenu() {
         setTitle("Informasi Kendaraan");
         initComponents();
         setLocationRelativeTo(null);
@@ -47,10 +47,16 @@ public class TambahKdrMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        RuteLabel.setFont(new java.awt.Font("ITF Devanagari",1,18));
+        RuteLabel.setFont(new java.awt.Font("ITF Devanagari",1,17));
         RuteLabel.setText("Rute");
+        Rute.addItem("-");
+
+        String[] ruteArray = new String[RuteTravel.values().length];
+        for (int i = 0; i < RuteTravel.values().length; i++) {
+            ruteArray[i] = RuteTravel.values()[i].toString();
+            Rute.addItem(ruteArray[i]);
+        }
         Rute.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
-        Rute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-","SURABAYA-MALANG", "MADURA-MALANG", "BANYUWANGI-MALANG", "SITUBONDO-MALANG", "TULUNGAGUNG-MALANG"}));
 
         jLabel3.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -66,7 +72,7 @@ public class TambahKdrMenu extends javax.swing.JFrame {
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BackButton(evt);
             }
         });
 
@@ -81,7 +87,7 @@ public class TambahKdrMenu extends javax.swing.JFrame {
 
         tahunField.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("ITF Devanagari", 1, 17)); // NOI18N
         jLabel1.setText("Nomor Plat");
 
         jLabel2.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
@@ -91,7 +97,7 @@ public class TambahKdrMenu extends javax.swing.JFrame {
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SubmitButton(evt);
             }
         });
 
@@ -170,7 +176,7 @@ public class TambahKdrMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void SubmitButton(java.awt.event.ActionEvent evt) {
         if (validateFields()) {
             saveKendaraanData();
             JOptionPane.showMessageDialog(this, "Data Kendaraan berhasil disimpan !!!");
@@ -182,11 +188,11 @@ public class TambahKdrMenu extends javax.swing.JFrame {
         }
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BackButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton
         AdminScreenMenu adminMenu = new AdminScreenMenu();
         adminMenu.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BackButton
 
     private void saveKendaraanData() {
         String jenis = jComboBox1.getSelectedItem().toString();
@@ -195,34 +201,18 @@ public class TambahKdrMenu extends javax.swing.JFrame {
         String warna = warnaField.getText();
         String tahun = tahunField.getText();
         String rute = Rute.getSelectedItem().toString();
+        boolean status = true;
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("kendaraan.txt", true))) {
-            writer.write("Jenis         : " + jenis + "\n");
-            writer.write("Nomor Plat    : " + nomorPlat + "\n");
-            writer.write("Merk          : " + merk + "\n");
-            writer.write("Warna         : " + warna + "\n");
-            writer.write("Tahun         : " + tahun + "\n");
-            writer.write("Rute          : " + rute + "\n");
-            writer.write("Status        : Available\n\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Gagal menyimpan data kendaraan.");
-        }
+        Kendaraan kendaraan = new Kendaraan(jenis, nomorPlat, merk, warna, tahun, rute, status);
+        kendaraan.saveDataKendaraan();
     }
 
     private boolean validateFields() {
-        return !nomorPlatField.getText().isEmpty() &&
-                !merkField.getText().isEmpty() &&
-                !warnaField.getText().isEmpty() &&
-                !tahunField.getText().isEmpty();
+        return !nomorPlatField.getText().isEmpty() && !merkField.getText().isEmpty()
+                && !warnaField.getText().isEmpty() && !tahunField.getText().isEmpty();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
@@ -235,25 +225,22 @@ public class TambahKdrMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TambahKdrMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahKendaraanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TambahKdrMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahKendaraanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TambahKdrMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahKendaraanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TambahKdrMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahKendaraanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TambahKdrMenu().setVisible(true);
+                new TambahKendaraanMenu().setVisible(true);
             }
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -269,5 +256,4 @@ public class TambahKdrMenu extends javax.swing.JFrame {
     private javax.swing.JTextField tahunField;
     private javax.swing.JLabel RuteLabel;
     private javax.swing.JComboBox<String> Rute;
-    // End of variables declaration//GEN-END:variables
 }

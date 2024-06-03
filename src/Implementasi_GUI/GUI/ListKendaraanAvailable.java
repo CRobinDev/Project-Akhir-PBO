@@ -1,18 +1,20 @@
-package GUI;
+package Implementasi_GUI.GUI;
 import java.awt.*;
 import java.io.*;
 import javax.swing.*;
+import Implementasi_GUI.Class.Kendaraan;
 
-public class ListKdrAvailable extends javax.swing.JFrame {
-    private String[] dataKendaraan; // Array untuk menyimpan data kendaraan
-    private int currentIndex; // Indeks data kendaraan yang sedang ditampilkan
+public class ListKendaraanAvailable extends javax.swing.JFrame {
+    private Kendaraan kendaraan;
+    private int currentIndex;
 
     /**
      * Creates new form ListKdrAvailable
      */
-    public ListKdrAvailable() {
+    public ListKendaraanAvailable() {
         initComponents();
-        readDataKendaraan();
+        kendaraan = new Kendaraan();
+        kendaraan.readDataKendaraan();
         displayDataKendaraan();
         setLocationRelativeTo(null);
         setTitle("List Kendaraan yang Tersedia");
@@ -81,12 +83,13 @@ public class ListKdrAvailable extends javax.swing.JFrame {
                                         .addComponent(Prev))
                                 .addGap(18, 18, 18))
         );
-
         pack();
+        setSize(400,340);
+
     }
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         currentIndex++; // Pindah ke data sopir berikutnya
-        if (currentIndex >= dataKendaraan.length) {
+        if (currentIndex >= kendaraan.getDataKendaraan().length) {
             currentIndex = 0; // Kembali ke awal jika sudah mencapai data terakhir
         }
         displayDataKendaraan(); // Menampilkan data sopir terbaru
@@ -94,7 +97,7 @@ public class ListKdrAvailable extends javax.swing.JFrame {
     private void PrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevActionPerformed
         currentIndex--; // Pindah ke data sopir sebelumnya
         if (currentIndex < 0) {
-            currentIndex = dataKendaraan.length - 1; // Kembali ke akhir jika sudah mencapai data pertama
+            currentIndex = kendaraan.getDataKendaraan().length - 1; // Kembali ke akhir jika sudah mencapai data pertama
         }
         displayDataKendaraan(); // Menampilkan data sopir terbaru
     }
@@ -104,49 +107,9 @@ public class ListKdrAvailable extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void readDataKendaraan() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("kendaraan.txt"))) {
-            StringBuilder kendaraan = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.isEmpty()) {
-                    // Jika menemukan baris kosong, simpan data kendaraan sebelumnya
-                    addKendaraanIfAvailable(kendaraan.toString());
-                    kendaraan = new StringBuilder(); // Bersihkan StringBuilder untuk data kendaraan baru
-                } else {
-                    kendaraan.append(line).append("<br>");
-                }
-            }
-            // Simpan data kendaraan terakhir setelah keluar dari loop
-            if (kendaraan.length() > 0) {
-                addKendaraanIfAvailable(kendaraan.toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Gagal membaca data kendaraan.");
-        }
-    }
-    private void addKendaraanIfAvailable(String data) {
-        if (data.contains("Status        : Available")) {
-            addDataKendaraan(data);
-        }
-    }
-
-    private void addDataKendaraan(String data) {
-
-        if (dataKendaraan == null) {
-            dataKendaraan = new String[]{data};
-        } else {
-            String[] newData = new String[dataKendaraan.length + 1];
-            System.arraycopy(dataKendaraan, 0, newData, 0, dataKendaraan.length);
-            newData[dataKendaraan.length] = data;
-            dataKendaraan = newData;
-        }
-    }
-
     private void displayDataKendaraan() {
-        if (dataKendaraan != null && dataKendaraan.length > 0) {
-            String[] dataLines = dataKendaraan[currentIndex].split("<br>");
+        if (kendaraan.getDataKendaraan() != null && kendaraan.getDataKendaraan().length > 0) {
+            String[] dataLines = kendaraan.getDataKendaraan()[currentIndex].split("<br>");
             StringBuilder formattedData = new StringBuilder("<html><h2>Data Kendaraan</h2><pre>");
             for (String line : dataLines) {
                 formattedData.append(line).append("\n");
@@ -169,12 +132,12 @@ public class ListKdrAvailable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListKdrAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListKendaraanAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new ListKdrAvailable().setVisible(true);
+            new ListKendaraanAvailable().setVisible(true);
         });
     }
 

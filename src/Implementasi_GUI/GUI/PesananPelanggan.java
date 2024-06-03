@@ -1,58 +1,62 @@
-package GUI;
+package Implementasi_GUI.GUI;
+import Implementasi_GUI.Class.CetakInfo;
+import Implementasi_GUI.Class.Pelanggan;
+
 import java.awt.*;
-import java.io.*;
 import javax.swing.*;
 
-public class PesananPelanggan extends javax.swing.JFrame {
-    private String[] dataPesanan; // Array untuk menyimpan data kendaraan
-    private int currentIndex; // Indeks data kendaraan yang sedang ditampilkan
-
-    private String username;
-    private PelangganScreenMenu ScreenMenu;
+public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
+    private int currentIndex;
+    private Pelanggan pelanggan;
+    private javax.swing.JLabel Label;
 
     /**
      * Creates new form ListKdrAvailable
      */
-
-    public PesananPelanggan(PelangganScreenMenu ScreenMenu) {
-        this.ScreenMenu = ScreenMenu;
-        this.username = ScreenMenu.getUsername();
+    public PesananPelanggan(PelangganScreenMenu screenMenu) {
         initComponents();
-        readDataPesanan();
-        displayDataPesanan();
+        displayInfo();
+        setLocationRelativeTo(null);
+        setTitle("List Pesanan Anda");
+        screenMenu.setVisible(true); // Menampilkan frame PelangganScreenMenu
+    }
+    public PesananPelanggan(Pelanggan pelanggan) {
+        this.pelanggan = pelanggan;
+        initComponents();
+        displayInfo();
         setLocationRelativeTo(null);
         setTitle("List Pesanan Anda");
     }
 
     private void initComponents() {
         Label = new javax.swing.JLabel();
-        Back = new javax.swing.JButton();
-        Next = new javax.swing.JButton();
-        Prev = new javax.swing.JButton();
+        JButton back = new JButton();
+        JButton next = new JButton();
+        JButton prev = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        Next.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        Next.setText(">");
-        Next.addActionListener(new java.awt.event.ActionListener() {
+        next.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        next.setText(">");
+        next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NextActionPerformed(evt);
             }
         });
 
-        Prev.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        Prev.setText("<");
-        Prev.addActionListener(new java.awt.event.ActionListener() {
+        prev.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        prev.setText("<");
+        prev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrevActionPerformed(evt);
             }
         });
 
-        Back.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
-        Back.setText("Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        back.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
             }
@@ -68,11 +72,11 @@ public class PesananPelanggan extends javax.swing.JFrame {
                                 .addContainerGap(50, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(Back)
+                                .addComponent(back)
                                 .addGap(100, 100, 100)
-                                .addComponent(Prev)
+                                .addComponent(prev)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Next)
+                                .addComponent(next)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,72 +86,36 @@ public class PesananPelanggan extends javax.swing.JFrame {
                                 .addComponent(Label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(Back)
-                                        .addComponent(Next)
-                                        .addComponent(Prev))
+                                        .addComponent(back)
+                                        .addComponent(next)
+                                        .addComponent(prev))
                                 .addGap(18, 18, 18))
         );
 
         pack();
     }
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        currentIndex++; // Pindah ke data sopir berikutnya
-        if (currentIndex >= dataPesanan.length) {
-            currentIndex = 0; // Kembali ke awal jika sudah mencapai data terakhir
+        currentIndex++;
+        if (currentIndex >= pelanggan.getDataPesanan().length) {
+            currentIndex = 0;
         }
-        displayDataPesanan(); // Menampilkan data sopir terbaru
+        displayInfo();
     }
     private void PrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevActionPerformed
-        currentIndex--; // Pindah ke data sopir sebelumnya
+        currentIndex--;
         if (currentIndex < 0) {
-            currentIndex = dataPesanan.length - 1; // Kembali ke akhir jika sudah mencapai data pertama
+            currentIndex = pelanggan.getDataPesanan().length - 1;
         }
-        displayDataPesanan(); // Menampilkan data sopir terbaru
+        displayInfo();
     }
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {
-        ScreenMenu.setVisible(true);
+        new PelangganScreenMenu(pelanggan.getUsername()).setVisible(true);
         this.dispose();
     }
 
-    private void readDataPesanan() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(username+".txt"))) {
-            System.out.println(username);
-            StringBuilder kendaraan = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.isEmpty()) {
-                    // Jika menemukan baris kosong, simpan data kendaraan sebelumnya
-                    addDataPesanan(kendaraan.toString());
-                    kendaraan = new StringBuilder(); // Bersihkan StringBuilder untuk data kendaraan baru
-                } else {
-                    kendaraan.append(line).append("<br>");
-                }
-            }
-            // Simpan data kendaraan terakhir setelah keluar dari loop
-            if (kendaraan.length() > 0) {
-                addDataPesanan(kendaraan.toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Gagal membaca data pesanan.");
-        }
-    }
-
-    private void addDataPesanan(String data) {
-        // Menambahkan data kendaraan ke array dataPesanan
-        if (dataPesanan == null) {
-            dataPesanan = new String[]{data};
-        } else {
-            String[] newData = new String[dataPesanan.length + 1];
-            System.arraycopy(dataPesanan, 0, newData, 0, dataPesanan.length);
-            newData[dataPesanan.length] = data;
-            dataPesanan = newData;
-        }
-    }
-
-    private void displayDataPesanan() {
-        if (dataPesanan != null && dataPesanan.length > 0) {
-            String[] dataLines = dataPesanan[currentIndex].split("<br>");
+     public void displayInfo() {
+        if (pelanggan.getDataPesanan() != null && pelanggan.getDataPesanan().length > 0) {
+            String[] dataLines = pelanggan.getDataPesanan()[currentIndex].split("<br>");
             StringBuilder formattedData = new StringBuilder("<html><h2>Data Pesanan</h2><pre>");
             for (String line : dataLines) {
                 formattedData.append(line).append("\n");
@@ -160,6 +128,7 @@ public class PesananPelanggan extends javax.swing.JFrame {
         }
     }
 
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         try {
@@ -170,7 +139,7 @@ public class PesananPelanggan extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListKdrAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListKendaraanAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         // Menampilkan frame PelangganScreenMenu
@@ -190,21 +159,19 @@ public class PesananPelanggan extends javax.swing.JFrame {
                 screenMenu.setVisible(true);
             }
         });
-        PesananPelanggan pesanan = new PesananPelanggan(screenMenu);
+
 
         // Menampilkan frame PelangganScreenMenu
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                PelangganScreenMenu screenMenu = new PelangganScreenMenu(loginMenu);
+                screenMenu.setVisible(true);
+                PesananPelanggan pesanan = new PesananPelanggan(screenMenu);
                 pesanan.setVisible(true);
             }
         });
 
     }
 
-    private javax.swing.JButton Back;
 
-    private javax.swing.JButton Next;
-    private javax.swing.JButton Prev;
-
-    private javax.swing.JLabel Label;
 }

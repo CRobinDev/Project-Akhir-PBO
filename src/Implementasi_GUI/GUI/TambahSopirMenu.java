@@ -2,18 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
+import Implementasi_GUI.Class.RuteTravel;
+import Implementasi_GUI.Class.Sopir;
+
 import javax.swing.*;
 import java.io.*;
 public class TambahSopirMenu extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TambahSupirRentCar
-     */
+    private Sopir sopir;
     public TambahSopirMenu() {
         setTitle("Biodata Sopir");
         initComponents();
         setLocationRelativeTo(null);
+        sopir = new Sopir();
     }
 
     /**
@@ -72,11 +73,6 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         tmbhSopirKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Laki laki", "Perempuan" }));
 
         tmbhSopirNama.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        tmbhSopirNama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tmbhSopirNamaActionPerformed(evt);
-            }
-        });
 
         tmbhSopirAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
 
@@ -110,14 +106,15 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         jLabel8.setText("Rute");
 
         RuteTmbhSopir.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));
-        RuteTmbhSopir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-","SURABAYA-MALANG", "MADURA-MALANG", "BANYUWANGI-MALANG", "SITUBONDO-MALANG", "TULUNGAGUNG-MALANG" }));
+        RuteTmbhSopir.addItem("-");
+        String[] ruteArray = new String[RuteTravel.values().length];
+        for (int i = 0; i < RuteTravel.values().length; i++) {
+            ruteArray[i] = RuteTravel.values()[i].toString();
+            RuteTmbhSopir.addItem(ruteArray[i]);
+        }
+
         jLabel8.setVisible(false);
         RuteTmbhSopir.setVisible(false);
-        RuteTmbhSopir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RuteTmbhSopirActionPerformed(evt);
-            }
-        });
 
         jButton1.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         jButton1.setText("Submit");
@@ -210,9 +207,6 @@ public class TambahSopirMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-    private void RuteTmbhSopirActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         saveDriverData();
         JOptionPane.showMessageDialog(this, "Biodata Sopir berhasil disimpan !!!");
@@ -225,7 +219,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         adminMenu.setVisible(true);
         this.dispose();
     }
-    private void saveDriverData() {
+    private void saveDriverData(){
         String nama = tmbhSopirNama.getText();
         String alamat = tmbhSopirAlamat.getText();
         String nomorHp = tmbhSopirNoHP.getText();
@@ -234,41 +228,25 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         String jenisMobil = tmbhJenisMobil.getSelectedItem().toString();
         String rute = RuteTmbhSopir.getSelectedItem().toString();
 
-        try (FileWriter writer = new FileWriter("sopir.txt", true);
-             FileWriter writer2 = new FileWriter("karyawan.txt", true)) {
-            writer.write("Nama          : " + nama + "\n");
-            writer.write("Alamat        : " + alamat + "\n");
-            writer.write("Nomor HP      : " + nomorHp + "\n");
-            writer.write("Jenis Kelamin : " + jenisKelamin + "\n");
-            writer.write("Lisensi       : " + lisensi + "\n");
-            writer.write("Jenis Mobil   : " + jenisMobil + "\n");
-            writer.write("Rute          : " + rute + "\n");
-            writer.write("Status        : Available\n\n");
+        sopir.setNama(nama);
+        sopir.setAlamat(alamat);
+        sopir.setNomorHp(nomorHp);
+        sopir.setJenisKelamin(jenisKelamin);
+        sopir.setLisensi(lisensi);
+        sopir.setJenisMobil(jenisMobil);
+        sopir.setRute(rute);
 
-            writer2.write("Nama          : " + nama + "\n");
-            writer2.write("Alamat        : " + alamat + "\n");
-            writer2.write("Nomor HP      : " + nomorHp + "\n");
-            writer2.write("Jenis Kelamin : " + jenisKelamin + "\n");
-            writer2.write("Lisensi       : " + lisensi + "\n");
-            writer2.write("Jenis Mobil   : " + jenisMobil + "\n");
-            writer2.write("Rute          : " + rute + "\n");
-            writer2.write("Status        : Available\n\n");
+        sopir.saveDataSopir();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Gagal menyimpan biodata sopir.");
-        }
-    }
-    private void tmbhSopirNamaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        AdminScreenMenu adminMenu = new AdminScreenMenu();
+        adminMenu.setVisible(true);
+        this.dispose();
     }
 
     private void tmbhJenisMobilActionPerformed(java.awt.event.ActionEvent evt) {
             jLabel8.setVisible(true);
             RuteTmbhSopir.setVisible(true);
         }
-
-
     /**
      * @param args the command line arguments
      */

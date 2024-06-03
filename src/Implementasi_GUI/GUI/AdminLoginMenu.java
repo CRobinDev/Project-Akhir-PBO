@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
+
+import Implementasi_GUI.Class.Akun;
 
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 /**
  *
  * @author dhani
  */
 public class AdminLoginMenu extends javax.swing.JFrame {
+    private Akun akunAdmin;
     public AdminLoginMenu() {
         initComponents();
     }
@@ -111,33 +111,11 @@ public class AdminLoginMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        welcomeScreen wlcome = new welcomeScreen();
-        wlcome.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BackButtonActionPerformed
-    private boolean validateUser(String username, String password) {
-        try (BufferedReader br = new BufferedReader(new FileReader("akun.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 2) {
-                    String storedUsername = parts[0];
-                    String storedPassword = parts[1];
-                    if (username.equals(storedUsername) && password.equals(storedPassword)) {
-                        return true; // Username and password match
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false; // Username and password don't match any entry in the file
-    }
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         String username = getName.getText();
         String password = new String(getPassword.getPassword());
-        if (validateUser(username, password)) {
+        akunAdmin = new Akun(username,password);
+        if (akunAdmin.authenticate(akunAdmin.getUsername(), akunAdmin.getPassword())) {
             // If username and password are correct, proceed to the next screen
             AdminScreenMenu admScMenu = new AdminScreenMenu();
             admScMenu.setVisible(true);
@@ -147,7 +125,12 @@ public class AdminLoginMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Incorrect username or password. Please try again.", "Login Failed", JOptionPane.ERROR_MESSAGE);
         }
     }
-    //GEN-LAST:event_LoginButtonActionPerformed
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        WelcomeScreen wlcome = new WelcomeScreen();
+        wlcome.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackButtonActionPerformed
+
 
     /**
      * @param args the command line arguments

@@ -2,22 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
 import javax.swing.*;
 import java.io.*;
+import Implementasi_GUI.Class.Admin;
 /**
  *
  * @author dhani
  */
 public class TambahAdmin extends javax.swing.JFrame {
-
+    private Admin admin;
     /**
      * Creates new form TambahAdmin
      */
     public TambahAdmin() {
-        setTitle("Biodata Admin");
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Biodata Admin");
     }
 
     /**
@@ -30,7 +31,7 @@ public class TambahAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        BackButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         tmbhSupirRCnama = new javax.swing.JTextField();
@@ -40,7 +41,7 @@ public class TambahAdmin extends javax.swing.JFrame {
         tmbhSupirRCnama1 = new javax.swing.JTextField();
         tmbhSupirRCnama2 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        SubmitButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
 
@@ -49,11 +50,11 @@ public class TambahAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BackButton.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BackButtonActionPerformed(evt);
             }
         });
 
@@ -65,11 +66,6 @@ public class TambahAdmin extends javax.swing.JFrame {
         jLabel2.setText("Nama");
 
         tmbhSupirRCnama.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        tmbhSupirRCnama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tmbhSupirRCnamaActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
         jLabel4.setText("Alamat");
@@ -80,28 +76,14 @@ public class TambahAdmin extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
         jLabel6.setText("Jenis Kelamin");
 
-        tmbhSupirRCnama1.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        tmbhSupirRCnama1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tmbhSupirRCnama1ActionPerformed(evt);
-            }
-        });
-
-        tmbhSupirRCnama2.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        tmbhSupirRCnama2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tmbhSupirRCnama2ActionPerformed(evt);
-            }
-        });
-
         jComboBox1.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Laki laki", "Perempuan" }));
 
-        jButton1.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        SubmitButton.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        SubmitButton.setText("Submit");
+        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SubmitButtonActionPerformed(evt);
             }
         });
 
@@ -110,11 +92,6 @@ public class TambahAdmin extends javax.swing.JFrame {
 
         jComboBox2.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Customer Service", "Administrasi", "Penjadwalan", "Arsip Data" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,9 +103,9 @@ public class TambahAdmin extends javax.swing.JFrame {
                                 .addGap(99, 99, 99))
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton2)
+                                .addComponent(BackButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
+                                .addComponent(SubmitButton)
                                 .addContainerGap())
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
@@ -182,36 +159,21 @@ public class TambahAdmin extends javax.swing.JFrame {
                                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton2)
-                                        .addComponent(jButton1))
+                                        .addComponent(BackButton)
+                                        .addComponent(SubmitButton))
                                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {
         AdminScreenMenu adminMenu = new AdminScreenMenu();
         adminMenu.setVisible(true);
         this.dispose();
     }
 
-    private void tmbhSupirRCnamaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void tmbhSupirRCnama1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void tmbhSupirRCnama2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         saveAdminData();
         JOptionPane.showMessageDialog(this, "Biodata Admin berhasil disimpan !!!");
         AdminScreenMenu adminMenu = new AdminScreenMenu();
@@ -225,25 +187,9 @@ public class TambahAdmin extends javax.swing.JFrame {
         String jenisKelamin = jComboBox1.getSelectedItem().toString();
         String divisi = jComboBox2.getSelectedItem().toString();
 
-        try (FileWriter writer = new FileWriter("admin.txt", true);
-             FileWriter writer2 = new FileWriter("karyawan.txt", true)) {
+        admin = new Admin(nama, alamat, nomorHp, jenisKelamin, divisi);
+        admin.saveData();
 
-            writer.write("Nama          : " + nama + "\n");
-            writer.write("Alamat        : " + alamat + "\n");
-            writer.write("Nomor HP      : " + nomorHp + "\n");
-            writer.write("Jenis Kelamin : " + jenisKelamin + "\n");
-            writer.write("Divisi        : " + divisi + "\n\n");
-
-            writer2.write("Nama          : " + nama + "\n");
-            writer2.write("Alamat        : " + alamat + "\n");
-            writer2.write("Nomor HP      : " + nomorHp + "\n");
-            writer2.write("Jenis Kelamin : " + jenisKelamin + "\n");
-            writer2.write("Divisi        : " + divisi + "\n\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Gagal menyimpan biodata admin.");
-        }
     }
     /**
      * @param args the command line arguments
@@ -281,8 +227,8 @@ public class TambahAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton SubmitButton;
+    private javax.swing.JButton BackButton;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;

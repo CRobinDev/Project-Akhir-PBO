@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
 
 /**
  *
@@ -27,7 +27,6 @@ public class AdminScreenMenu extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
-
 
         jLabel1 = new javax.swing.JLabel();
         TambahSupirButton = new javax.swing.JButton();
@@ -148,7 +147,7 @@ public class AdminScreenMenu extends javax.swing.JFrame {
     }
 
     private void TambahKendaraanButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TambahKdrMenu tbhKdrMenu = new TambahKdrMenu();
+        TambahKendaraanMenu tbhKdrMenu = new TambahKendaraanMenu();
         tbhKdrMenu.setVisible(true);
         this.dispose();
     }
@@ -178,7 +177,7 @@ public class AdminScreenMenu extends javax.swing.JFrame {
     }
 
     private void ListKendaraanButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        ListKdrAvailable listKdrMenu = new ListKdrAvailable();
+        ListKendaraanAvailable listKdrMenu = new ListKendaraanAvailable();
         listKdrMenu.setVisible(true);
         this.dispose();
     }

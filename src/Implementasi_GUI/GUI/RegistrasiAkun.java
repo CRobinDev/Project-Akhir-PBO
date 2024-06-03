@@ -2,14 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
+import Implementasi_GUI.Class.Akun;
+
 import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class RegisAkun extends javax.swing.JFrame {
-    public RegisAkun() {
+public class RegistrasiAkun extends javax.swing.JFrame {
+    private Akun akun;
+    public RegistrasiAkun() {
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -90,22 +93,18 @@ public class RegisAkun extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        welcomeScreen wlcome = new welcomeScreen();
-        wlcome.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    //GEN-LAST:event_jButton5ActionPerformed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         String username = NameField.getText();
         String password = PasswordField.getText();
+        akun = new Akun(username, password);
         // Save the username and password to accounts.txt
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("akun.txt", true))) {
-            writer.write(username + "," + password);
+            writer.write(akun.getUsername() + "," + akun.getPassword());
             writer.newLine();
             JOptionPane.showMessageDialog(this, "Account registered successfully!");
-            welcomeScreen wlcome = new welcomeScreen();
+            WelcomeScreen wlcome = new WelcomeScreen();
             wlcome.setVisible(true);
             this.dispose();
         } catch (IOException e) {
@@ -130,20 +129,20 @@ public class RegisAkun extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrasiAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrasiAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrasiAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrasiAkun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisAkun().setVisible(true);
+                new RegistrasiAkun().setVisible(true);
             }
         });
     }

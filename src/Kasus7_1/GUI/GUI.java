@@ -13,9 +13,7 @@ public class GUI extends JFrame {
         setSize(500, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
-        // Menampilkan layar sambutan pertama kali aplikasi dijalankan
-        welcomeScreen = new WelcomeScreen(this);
+                welcomeScreen = new WelcomeScreen(this);
         add(welcomeScreen);
 
         setVisible(true);
@@ -29,10 +27,10 @@ public class GUI extends JFrame {
         repaint();
     }
 
-    // Menampilkan GUI untuk menginput data mobil
-    public void showMobilGUI(Karyawan karyawan) { // Menambah parameter Karyawan
+
+    public void showMobilGUI(Karyawan karyawan) {
         getContentPane().removeAll();
-        mobilGUI = new MobilGUI(this, karyawan); // Mengirim objek Karyawan ke MobilGUI
+        mobilGUI = new MobilGUI(this, karyawan);
         add(mobilGUI);
         revalidate();
         repaint();

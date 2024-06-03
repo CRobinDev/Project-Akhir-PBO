@@ -1,4 +1,6 @@
-package GUI;
+package Implementasi_GUI.GUI;
+import Implementasi_GUI.Class.Pelanggan;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -7,16 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.*;
+import Implementasi_GUI.Class.RuteTravel;
 
 public class PelangganScreenMenu extends javax.swing.JFrame {
+    private Pelanggan pesananPelanggan;
     private Map<String, ArrayList<String>> ruteToSopirMap;
     private Map<String, ArrayList<String>> jenisToKendaraanMap;
     private String username;
     private Map<String, String> nomorPlatToJenisMap = new HashMap<>();
-    public PelangganScreenMenu(PelangganLoginMenu namaUser){
+    public PelangganScreenMenu(PelangganLoginMenu akunPelanggan){
         setTitle("Pemesanan");
         initComponents();
-        this.username = namaUser.getUsername();
+        this.username = akunPelanggan.getUsername();
         setLocationRelativeTo(null);
         jenisToKendaraanMap = new HashMap<>();
         readKendaraanData();
@@ -25,7 +29,18 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
         readSopirData();
         updateSopirComboBox();
     }
-
+    public PelangganScreenMenu(String username){
+        setTitle("Pemesanan");
+        initComponents();
+        this.username = username;
+        setLocationRelativeTo(null);
+        jenisToKendaraanMap = new HashMap<>();
+        readKendaraanData();
+        updateKendaraanComboBox();
+        ruteToSopirMap = new HashMap<>();
+        readSopirData();
+        updateSopirComboBox();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -98,7 +113,13 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
         jLabel8.setText("Pilih Rute");
-        pelangganPilihRute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-","SURABAYA-MALANG", "MADURA-MALANG", "BANYUWANGI-MALANG", "SITUBONDO-MALANG", "TULUNGAGUNG-MALANG" }));
+
+        pelangganPilihRute.addItem("-");
+        String[] ruteArray = new String[RuteTravel.values().length];
+        for (int i = 0; i < RuteTravel.values().length; i++) {
+            ruteArray[i] = RuteTravel.values()[i].toString();
+            pelangganPilihRute.addItem(ruteArray[i]);
+        }
         pelangganPilihRute.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));
         pelangganPilihRute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,8 +235,9 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private void pesananButtonActionPerformed(java.awt.event.ActionEvent evt) {
         setUsername(username);
-        PesananPelanggan list = new PesananPelanggan(this);
-        list.setVisible(true);
+        pesananPelanggan = new Pelanggan(this.username);
+        PesananPelanggan pesanan = new PesananPelanggan(pesananPelanggan);
+        pesanan.setVisible(true);
         this.dispose();
     }
     public void setUsername(String username) {

@@ -2,16 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Implementasi_GUI.GUI;
 import java.awt.*;
 import java.io.*;
 import javax.swing.*;
+import Implementasi_GUI.Class.Karyawan;
 /**
  *
  * @author dhani
  */
 public class ListSemuaKaryawan extends javax.swing.JFrame {
-    private String[] dataKaryawan; // Array untuk menyimpan data sopir
+    private Karyawan karyawan;
     private int currentIndex; // Indeks data sopir yang sedang ditampilkan
 
     /**
@@ -19,7 +20,8 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
      */
     public ListSemuaKaryawan() {
         initComponents();
-        readDataKaryawan();
+        karyawan = new Karyawan();
+        karyawan.readDataKaryawan();
         displayDataKaryawan();
         setLocationRelativeTo(null);
         setTitle("List Semua Karyawan");
@@ -48,7 +50,7 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
         jButton1.setText(">");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                NextButton(evt);
             }
         });
 
@@ -56,7 +58,7 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
         jButton3.setText("<");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                PrevButton(evt);
             }
         });
 
@@ -65,7 +67,7 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BackButton(evt);
             }
         });
 
@@ -103,68 +105,31 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
         setSize(400,340);
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void BackButton(java.awt.event.ActionEvent evt) {
         AdminScreenMenu adminMenu = new AdminScreenMenu();
         adminMenu.setVisible(true);
         this.dispose();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        currentIndex++; // Pindah ke data sopir berikutnya
-        if (currentIndex >= dataKaryawan.length) {
-            currentIndex = 0; // Kembali ke awal jika sudah mencapai data terakhir
+    private void NextButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButton
+        currentIndex++;
+        if (currentIndex >= karyawan.getDataKaryawan().length) {
+            currentIndex = 0;
         }
-        displayDataKaryawan(); // Menampilkan data sopir terbaru
+        displayDataKaryawan();
     }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        currentIndex--; // Pindah ke data sopir sebelumnya
+    private void PrevButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevButton
+        currentIndex--;
         if (currentIndex < 0) {
-            currentIndex = dataKaryawan.length - 1; // Kembali ke akhir jika sudah mencapai data pertama
+            currentIndex = karyawan.getDataKaryawan().length - 1;
         }
-        displayDataKaryawan(); // Menampilkan data sopir terbaru
-    }
-
-    private void readDataKaryawan() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Karyawan.txt"))) {
-            StringBuilder sopir = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.contains("Status")) {
-                    continue;
-                }
-                if (line.isEmpty()) {
-                    addDataKaryawan(sopir.toString());
-                    sopir = new StringBuilder();
-                } else {
-                    sopir.append(line).append("<br>");
-                }
-            }
-            // Simpan data sopir terakhir setelah keluar dari loop
-            if (sopir.length() > 0) {
-                addDataKaryawan(sopir.toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Gagal membaca data sopir.");
-        }
-    }
-
-    private void addDataKaryawan(String data) {
-        // Menambahkan data sopir ke array dataKaryawan
-        if (dataKaryawan == null) {
-            dataKaryawan = new String[]{data};
-        } else {
-            String[] newData = new String[dataKaryawan.length + 1];
-            System.arraycopy(dataKaryawan, 0, newData, 0, dataKaryawan.length);
-            newData[dataKaryawan.length] = data;
-            dataKaryawan = newData;
-        }
+        displayDataKaryawan();
     }
 
     private void displayDataKaryawan() {
-        if (dataKaryawan != null && dataKaryawan.length > 0) {
-            String[] dataLines = dataKaryawan[currentIndex].split("<br>");
+        if (karyawan.getDataKaryawan() != null && karyawan.getDataKaryawan().length > 0) {
+            String[] dataLines = karyawan.getDataKaryawan()[currentIndex].split("<br>");
             StringBuilder formattedData = new StringBuilder("<html><h2>Data Karyawan</h2><pre>");
             for (String line : dataLines) {
                 formattedData.append(line).append("\n");
