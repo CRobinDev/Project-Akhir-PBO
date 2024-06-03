@@ -42,7 +42,8 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        getName.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
+        getPassword.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         LoginButton.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
         LoginButton.setText("Login");
         LoginButton.addActionListener(new java.awt.event.ActionListener() {

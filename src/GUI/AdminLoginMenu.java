@@ -34,9 +34,10 @@ public class AdminLoginMenu extends javax.swing.JFrame {
         PasswordLabel = new javax.swing.JLabel();
         BackButton = new javax.swing.JButton();
         LoginButton = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        getName.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
+        getPassword.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
         NameLabel.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         NameLabel.setText("Username");
 
