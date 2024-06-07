@@ -5,8 +5,7 @@
 package Implementasi_GUI.GUI;
 
 /**
- *
- *
+
  */
 public class WelcomeScreen extends javax.swing.JFrame {
 
