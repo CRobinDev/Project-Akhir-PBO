@@ -17,27 +17,25 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         sopir = new Sopir();
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
-
         tmbhSupirRC3 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        labelNama = new javax.swing.JLabel();
+        labelAlamat = new javax.swing.JLabel();
+        labelBiodataSupir = new javax.swing.JLabel();
+        labelNoHp = new javax.swing.JLabel();
+        labelGender = new javax.swing.JLabel();
+        labelLisensi = new javax.swing.JLabel();
+        labelJenisMobil = new javax.swing.JLabel();
         tmbhSopirKelamin = new javax.swing.JComboBox<>();
         tmbhSopirNama = new javax.swing.JTextField();
         tmbhSopirAlamat = new javax.swing.JTextField();
         tmbhSopirNoHP = new javax.swing.JTextField();
         tmbhSopirLisensi = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        TombolSubmit = new javax.swing.JButton();
+        TombolBack = new javax.swing.JButton();
+        labelRute = new javax.swing.JLabel();
         tmbhJenisMobil = new javax.swing.JComboBox<>();
         RuteTmbhSopir = new javax.swing.JComboBox<>();
 
@@ -46,24 +44,24 @@ public class TambahSopirMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel1.setText("Nama");
+        labelNama.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelNama.setText("Nama");
 
-        jLabel2.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel2.setText("Alamat");
+        labelAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelAlamat.setText("Alamat");
 
-        jLabel3.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Biodata Sopir");
+        labelBiodataSupir.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
+        labelBiodataSupir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBiodataSupir.setText("Biodata Sopir");
 
-        jLabel4.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel4.setText("Nomor HP");
+        labelNoHp.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelNoHp.setText("Nomor HP");
 
-        jLabel5.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel5.setText("Jenis Kelamin");
+        labelGender.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelGender.setText("Jenis Kelamin");
 
-        jLabel6.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel6.setText("Lisensi");
+        labelLisensi.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelLisensi.setText("Lisensi");
 
         tmbhSopirKelamin.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         tmbhSopirKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Laki laki", "Perempuan" }));
@@ -76,19 +74,19 @@ public class TambahSopirMenu extends javax.swing.JFrame {
 
         tmbhSopirLisensi.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        jButton1.setText("Submit");
+        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolSubmit.setText("Submit");
 
-        jButton2.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        TombolBack.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolBack.setText("Back");
+        TombolBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                TombolBackActionPerformed(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel7.setText("Jenis Mobil");
+        labelJenisMobil.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelJenisMobil.setText("Jenis Mobil");
 
         tmbhJenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         tmbhJenisMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Mobil Pribadi", "Travel"}));
@@ -98,8 +96,8 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel8.setText("Rute");
+        labelRute.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelRute.setText("Rute");
 
         RuteTmbhSopir.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));
         RuteTmbhSopir.addItem("-");
@@ -109,14 +107,14 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             RuteTmbhSopir.addItem(ruteArray[i]);
         }
 
-        jLabel8.setVisible(false);
+        labelRute.setVisible(false);
         RuteTmbhSopir.setVisible(false);
 
-        jButton1.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
+        TombolSubmit.setText("Submit");
+        TombolSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                TombolSubmitActionPerformed(evt);
             }
         });
 
@@ -126,24 +124,24 @@ public class TambahSopirMenu extends javax.swing.JFrame {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(94, 94, 94)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelBiodataSupir, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 109, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton2)
+                                .addComponent(TombolBack)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
+                                .addComponent(TombolSubmit)
                                 .addContainerGap())
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel5)
-                                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
+                                                        .addComponent(labelAlamat, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(labelNama, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(labelGender)
+                                                        .addComponent(labelNoHp, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(labelLisensi, javax.swing.GroupLayout.Alignment.LEADING))
                                                 .addGap(18, 43, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(tmbhSopirKelamin, 0, 168, Short.MAX_VALUE)
@@ -153,8 +151,8 @@ public class TambahSopirMenu extends javax.swing.JFrame {
                                                         .addComponent(tmbhSopirLisensi)))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel7)
-                                                        .addComponent(jLabel8))
+                                                        .addComponent(labelJenisMobil)
+                                                        .addComponent(labelRute))
                                                 .addGap(63, 63, 63)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(RuteTmbhSopir, 0, 1, Short.MAX_VALUE)
@@ -165,52 +163,52 @@ public class TambahSopirMenu extends javax.swing.JFrame {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(jLabel3)
+                                .addComponent(labelBiodataSupir)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel1)
+                                        .addComponent(labelNama)
                                         .addComponent(tmbhSopirNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2)
+                                        .addComponent(labelAlamat)
                                         .addComponent(tmbhSopirAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel4)
+                                        .addComponent(labelNoHp)
                                         .addComponent(tmbhSopirNoHP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel5)
+                                        .addComponent(labelGender)
                                         .addComponent(tmbhSopirKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel6)
+                                        .addComponent(labelLisensi)
                                         .addComponent(tmbhSopirLisensi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel7)
+                                        .addComponent(labelJenisMobil)
                                         .addComponent(tmbhJenisMobil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel8)
+                                        .addComponent(labelRute)
                                         .addComponent(RuteTmbhSopir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton2)
-                                        .addComponent(jButton1))
+                                        .addComponent(TombolBack)
+                                        .addComponent(TombolSubmit))
                                 .addContainerGap())
         );
 
         pack();
-    }// </editor-fold>
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    }
+    private void TombolSubmitActionPerformed(java.awt.event.ActionEvent evt) {
         saveDriverData();
         JOptionPane.showMessageDialog(this, "Biodata Sopir berhasil disimpan !!!");
         AdminScreenMenu adminMenu = new AdminScreenMenu();
         adminMenu.setVisible(true);
         this.dispose();
     }
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void TombolBackActionPerformed(java.awt.event.ActionEvent evt) {
         AdminScreenMenu adminMenu = new AdminScreenMenu();
         adminMenu.setVisible(true);
         this.dispose();
@@ -231,7 +229,6 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         sopir.setLisensi(lisensi);
         sopir.setJenisMobil(jenisMobil);
         sopir.setRute(rute);
-
         sopir.saveDataSopir();
 
         AdminScreenMenu adminMenu = new AdminScreenMenu();
@@ -240,7 +237,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
     }
 
     private void tmbhJenisMobilActionPerformed(java.awt.event.ActionEvent evt) {
-            jLabel8.setVisible(true);
+            labelRute.setVisible(true);
             RuteTmbhSopir.setVisible(true);
         }
 
@@ -252,18 +249,18 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         });
     }
 
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton TombolSubmit;
+    private javax.swing.JButton TombolBack;
     private javax.swing.JComboBox<String> tmbhSopirKelamin;
     private javax.swing.JComboBox<String> tmbhJenisMobil;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel labelNama;
+    private javax.swing.JLabel labelAlamat;
+    private javax.swing.JLabel labelBiodataSupir;
+    private javax.swing.JLabel labelNoHp;
+    private javax.swing.JLabel labelGender;
+    private javax.swing.JLabel labelLisensi;
+    private javax.swing.JLabel labelJenisMobil;
+    private javax.swing.JLabel labelRute;
     private javax.swing.JTextField tmbhSupirRC3;
     private javax.swing.JTextField tmbhSopirAlamat;
     private javax.swing.JTextField tmbhSopirLisensi;
