@@ -6,7 +6,7 @@ package Implementasi_GUI.GUI;
 
 /**
  *
- * @author dhani
+ *
  */
 public class WelcomeScreen extends javax.swing.JFrame {
 
