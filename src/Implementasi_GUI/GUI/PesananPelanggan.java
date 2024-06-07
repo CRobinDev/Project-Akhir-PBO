@@ -10,15 +10,12 @@ public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
     private Pelanggan pelanggan;
     private javax.swing.JLabel Label;
 
-    /**
-     * Creates new form ListKdrAvailable
-     */
     public PesananPelanggan(PelangganScreenMenu screenMenu) {
         initComponents();
         displayInfo();
         setLocationRelativeTo(null);
         setTitle("List Pesanan Anda");
-        screenMenu.setVisible(true); // Menampilkan frame PelangganScreenMenu
+        screenMenu.setVisible(true);
     }
     public PesananPelanggan(Pelanggan pelanggan) {
         this.pelanggan = pelanggan;
@@ -38,7 +35,7 @@ public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
 
         Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        next.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        next.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         next.setText(">");
         next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,7 +43,7 @@ public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
             }
         });
 
-        prev.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        prev.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         prev.setText("<");
         prev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,17 +88,16 @@ public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
                                         .addComponent(prev))
                                 .addGap(18, 18, 18))
         );
-
         pack();
     }
-    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
+    private void NextActionPerformed(java.awt.event.ActionEvent evt) {
         currentIndex++;
         if (currentIndex >= pelanggan.getDataPesanan().length) {
             currentIndex = 0;
         }
         displayInfo();
     }
-    private void PrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevActionPerformed
+    private void PrevActionPerformed(java.awt.event.ActionEvent evt) {
         currentIndex--;
         if (currentIndex < 0) {
             currentIndex = pelanggan.getDataPesanan().length - 1;
@@ -130,7 +126,6 @@ public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
 
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -142,10 +137,8 @@ public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
             java.util.logging.Logger.getLogger(ListKendaraanAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        // Menampilkan frame PelangganScreenMenu
         PelangganLoginMenu loginMenu = new PelangganLoginMenu();
 
-        // Menampilkan frame PelangganLoginMenu
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 loginMenu.setVisible(true);
@@ -153,15 +146,12 @@ public class PesananPelanggan extends javax.swing.JFrame implements CetakInfo {
         });
         PelangganScreenMenu screenMenu = new PelangganScreenMenu(loginMenu);
 
-        // Menampilkan frame PelangganScreenMenu
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 screenMenu.setVisible(true);
             }
         });
 
-
-        // Menampilkan frame PelangganScreenMenu
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 PelangganScreenMenu screenMenu = new PelangganScreenMenu(loginMenu);
