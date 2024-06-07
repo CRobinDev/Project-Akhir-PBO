@@ -8,9 +8,6 @@ public class ListKendaraanAvailable extends javax.swing.JFrame {
     private Kendaraan kendaraan;
     private int currentIndex;
 
-    /**
-     * Creates new form ListKdrAvailable
-     */
     public ListKendaraanAvailable() {
         initComponents();
         kendaraan = new Kendaraan();
@@ -30,7 +27,7 @@ public class ListKendaraanAvailable extends javax.swing.JFrame {
 
         Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        Next.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        Next.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         Next.setText(">");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -38,7 +35,7 @@ public class ListKendaraanAvailable extends javax.swing.JFrame {
             }
         });
 
-        Prev.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        Prev.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         Prev.setText("<");
         Prev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,19 +84,19 @@ public class ListKendaraanAvailable extends javax.swing.JFrame {
         setSize(400,340);
 
     }
-    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        currentIndex++; // Pindah ke data sopir berikutnya
+    private void NextActionPerformed(java.awt.event.ActionEvent evt) {
+        currentIndex++;
         if (currentIndex >= kendaraan.getDataKendaraan().length) {
-            currentIndex = 0; // Kembali ke awal jika sudah mencapai data terakhir
+            currentIndex = 0;
         }
-        displayDataKendaraan(); // Menampilkan data sopir terbaru
+        displayDataKendaraan();
     }
-    private void PrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevActionPerformed
-        currentIndex--; // Pindah ke data sopir sebelumnya
+    private void PrevActionPerformed(java.awt.event.ActionEvent evt) {
+        currentIndex--;
         if (currentIndex < 0) {
-            currentIndex = kendaraan.getDataKendaraan().length - 1; // Kembali ke akhir jika sudah mencapai data pertama
+            currentIndex = kendaraan.getDataKendaraan().length - 1;
         }
-        displayDataKendaraan(); // Menampilkan data sopir terbaru
+        displayDataKendaraan();
     }
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {
         AdminScreenMenu adminMenu = new AdminScreenMenu();
@@ -123,7 +120,6 @@ public class ListKendaraanAvailable extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -135,16 +131,13 @@ public class ListKendaraanAvailable extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ListKendaraanAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new ListKendaraanAvailable().setVisible(true);
         });
     }
 
     private javax.swing.JButton Back;
-
     private javax.swing.JButton Next;
     private javax.swing.JButton Prev;
-
     private javax.swing.JLabel Label;
 }

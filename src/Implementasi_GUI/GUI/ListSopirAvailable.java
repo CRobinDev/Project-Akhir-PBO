@@ -87,27 +87,27 @@ public class ListSopirAvailable extends javax.swing.JFrame {
         setSize(400, 340);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton
+    private void BackButton(java.awt.event.ActionEvent evt) {
         AdminScreenMenu adminMenu = new AdminScreenMenu();
         adminMenu.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_BackButton
+    }
 
-    private void NextButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButton
+    private void NextButton(java.awt.event.ActionEvent evt) {
         currentIndex++;
         if (currentIndex >= sopir.getSopirData().length) {
             currentIndex = 0;
         }
         displaySopirData();
-    }//GEN-LAST:event_NextButton
+    }
 
-    private void PrevButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevButton
+    private void PrevButton(java.awt.event.ActionEvent evt) {
         currentIndex--;
         if (currentIndex < 0) {
             currentIndex = sopir.getSopirData().length - 1;
         }
         displaySopirData();
-    }//GEN-LAST:event_PrevButton
+    }
 
     private void displaySopirData() {
         if (sopir.getSopirData() != null && sopir.getSopirData().length > 0) {
@@ -125,7 +125,6 @@ public class ListSopirAvailable extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ListSopirAvailable().setVisible(true);
@@ -133,10 +132,8 @@ public class ListSopirAvailable extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NextButton;
     private javax.swing.JButton BackButton;
     private javax.swing.JButton PrevButton;
     private javax.swing.JLabel Label;
-    // End of variables declaration//GEN-END:variables
 }
