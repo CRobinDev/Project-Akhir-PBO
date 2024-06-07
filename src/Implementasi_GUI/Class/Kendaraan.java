@@ -83,14 +83,13 @@ public class Kendaraan {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.isEmpty()) {
-                    // Jika menemukan baris kosong, simpan data kendaraan sebelumnya
                     addKendaraanIfAvailable(kendaraan.toString());
-                    kendaraan = new StringBuilder(); // Bersihkan StringBuilder untuk data kendaraan baru
+                    kendaraan = new StringBuilder();
                 } else {
                     kendaraan.append(line).append("<br>");
                 }
             }
-            // Simpan data kendaraan terakhir setelah keluar dari loop
+
             if (!kendaraan.isEmpty()) {
                 addKendaraanIfAvailable(kendaraan.toString());
             }

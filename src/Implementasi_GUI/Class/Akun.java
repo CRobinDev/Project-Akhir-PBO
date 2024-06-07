@@ -39,13 +39,13 @@ public class Akun {
                     String storedUsername = parts[0];
                     String storedPassword = parts[1];
                     if (authenticate(storedUsername,storedPassword)) {
-                        return true; // Username and password match
+                        return true;
                     }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return false; // Username and password don't match any entry in the file
+        return false;
     }
 }

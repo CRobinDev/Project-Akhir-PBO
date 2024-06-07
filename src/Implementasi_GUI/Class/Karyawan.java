@@ -76,7 +76,6 @@ public class Karyawan {
                     sopir.append(line).append("<br>");
                 }
             }
-            // Simpan data sopir terakhir setelah keluar dari loop
             if (!sopir.isEmpty()) {
                 addDataKaryawan(sopir.toString());
             }

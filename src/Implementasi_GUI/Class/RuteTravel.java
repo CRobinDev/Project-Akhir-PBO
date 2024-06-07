@@ -4,10 +4,6 @@
  */
 package Implementasi_GUI.Class;
 
-/**
- *
- * @author dhani
- */
 public enum RuteTravel {
 
     SURABAYA_MALANG,
