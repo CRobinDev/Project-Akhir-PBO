@@ -33,12 +33,12 @@ public class TambahAdmin extends javax.swing.JFrame {
         labelDivisi = new javax.swing.JLabel();
         ComboDivisi = new javax.swing.JComboBox<>();
 
-        labelNama.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelNama.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelNama.setText("Nama");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TombolBack.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolBack.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         TombolBack.setText("Back");
         TombolBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,28 +46,28 @@ public class TambahAdmin extends javax.swing.JFrame {
             }
         });
 
-        labelBiodataAdmin.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
+        labelBiodataAdmin.setFont(new java.awt.Font("ITF Devanagari", 1, 24));
         labelBiodataAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelBiodataAdmin.setText("Biodata Admin");
 
-        labelNama2.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelNama2.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelNama2.setText("Nama");
 
-        tmbhSupirRCnama.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        tmbhSupirRCnama.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        labelAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelAlamat.setText("Alamat");
 
-        labelNoHP.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelNoHP.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelNoHP.setText("Nomor HP");
 
-        labelGender.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelGender.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelGender.setText("Jenis Kelamin");
 
-        ComboGender.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        ComboGender.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
         ComboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Laki laki", "Perempuan" }));
 
-        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         TombolSubmit.setText("Submit");
         TombolSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,10 +75,10 @@ public class TambahAdmin extends javax.swing.JFrame {
             }
         });
 
-        labelDivisi.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelDivisi.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelDivisi.setText("Divisi");
 
-        ComboDivisi.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        ComboDivisi.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
         ComboDivisi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Customer Service", "Administrasi", "Penjadwalan", "Arsip Data" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

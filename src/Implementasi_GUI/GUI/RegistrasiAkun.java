@@ -29,11 +29,11 @@ public class RegistrasiAkun extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         NameField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         PasswordField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
-        Judul.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 24)); // NOI18N
+        Judul.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 24));
         Judul.setText("Registrasi Akun");
 
 
-        Submit.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        Submit.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         Submit.setText("Submit");
         Submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

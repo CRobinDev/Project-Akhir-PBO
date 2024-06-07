@@ -39,45 +39,45 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         tmbhJenisMobil = new javax.swing.JComboBox<>();
         RuteTmbhSopir = new javax.swing.JComboBox<>();
 
-        tmbhSupirRC3.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        tmbhSupirRC3.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         tmbhSupirRC3.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelNama.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelNama.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelNama.setText("Nama");
 
-        labelAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelAlamat.setText("Alamat");
 
-        labelBiodataSupir.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
+        labelBiodataSupir.setFont(new java.awt.Font("ITF Devanagari", 1, 24));
         labelBiodataSupir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelBiodataSupir.setText("Biodata Sopir");
 
-        labelNoHp.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelNoHp.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelNoHp.setText("Nomor HP");
 
-        labelGender.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelGender.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelGender.setText("Jenis Kelamin");
 
-        labelLisensi.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelLisensi.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelLisensi.setText("Lisensi");
 
-        tmbhSopirKelamin.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        tmbhSopirKelamin.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
         tmbhSopirKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Laki laki", "Perempuan" }));
 
-        tmbhSopirNama.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        tmbhSopirNama.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        tmbhSopirAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        tmbhSopirAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        tmbhSopirNoHP.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        tmbhSopirNoHP.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        tmbhSopirLisensi.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        tmbhSopirLisensi.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         TombolSubmit.setText("Submit");
 
-        TombolBack.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolBack.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         TombolBack.setText("Back");
         TombolBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,10 +85,10 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             }
         });
 
-        labelJenisMobil.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelJenisMobil.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelJenisMobil.setText("Jenis Mobil");
 
-        tmbhJenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        tmbhJenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
         tmbhJenisMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Mobil Pribadi", "Travel"}));
         tmbhJenisMobil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             }
         });
 
-        labelRute.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelRute.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelRute.setText("Rute");
 
         RuteTmbhSopir.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 13));

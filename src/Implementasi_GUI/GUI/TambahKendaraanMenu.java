@@ -44,19 +44,19 @@ public class TambahKendaraanMenu extends javax.swing.JFrame {
             ruteArray[i] = RuteTravel.values()[i].toString();
             Rute.addItem(ruteArray[i]);
         }
-        Rute.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        Rute.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
 
-        labelTambahkanKdr.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
+        labelTambahkanKdr.setFont(new java.awt.Font("ITF Devanagari", 1, 24));
         labelTambahkanKdr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTambahkanKdr.setText("Tambahkan Kendaraan");
 
-        labelWarna.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelWarna.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelWarna.setText("Warna");
 
-        labelTahun.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelTahun.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelTahun.setText("Tahun");
 
-        TombolBack.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolBack.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         TombolBack.setText("Back");
         TombolBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,24 +64,24 @@ public class TambahKendaraanMenu extends javax.swing.JFrame {
             }
         });
 
-        ComboJenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        ComboJenisMobil.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14));
         ComboJenisMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mobil Pribadi", "Mini Bus", "Bus" }));
 
-        nomorPlatField.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        nomorPlatField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        merkField.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        merkField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        warnaField.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        warnaField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        tahunField.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        tahunField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
-        labelNoPlat.setFont(new java.awt.Font("ITF Devanagari", 1, 17)); // NOI18N
+        labelNoPlat.setFont(new java.awt.Font("ITF Devanagari", 1, 17));
         labelNoPlat.setText("Nomor Plat");
 
-        labelMerk.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelMerk.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelMerk.setText("Merk");
 
-        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        TombolSubmit.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
         TombolSubmit.setText("Submit");
         TombolSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +89,7 @@ public class TambahKendaraanMenu extends javax.swing.JFrame {
             }
         });
 
-        labelJenis.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        labelJenis.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelJenis.setText("Jenis");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
