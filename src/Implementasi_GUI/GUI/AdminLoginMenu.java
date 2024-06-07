@@ -9,8 +9,7 @@ import Implementasi_GUI.Class.Akun;
 import javax.swing.*;
 
 /**
- *
- * @author dhani
+
  */
 public class AdminLoginMenu extends javax.swing.JFrame {
     private Akun akunAdmin;
