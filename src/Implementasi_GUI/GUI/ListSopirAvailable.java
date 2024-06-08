@@ -1,18 +1,21 @@
 package Implementasi_GUI.GUI;
 
-import java.io.*;
-import javax.swing.*;
 import java.awt.*;
+import Implementasi_GUI.Class.Karyawan;
 import Implementasi_GUI.Class.Sopir;
 
 public class ListSopirAvailable extends javax.swing.JFrame {
-    public Sopir sopir;
+    private javax.swing.JButton NextButton;
+    private javax.swing.JButton BackButton;
+    private javax.swing.JButton PrevButton;
+    private javax.swing.JLabel Label;
+    public Karyawan sopir;
     private int currentIndex;
 
     public ListSopirAvailable() {
         initComponents();
         sopir = new Sopir();
-        sopir.readDataSopir();
+        sopir.readDataKaryawan();
         displaySopirData();
         setLocationRelativeTo(null);
         setTitle("List Sopir yang Tersedia");
@@ -95,7 +98,7 @@ public class ListSopirAvailable extends javax.swing.JFrame {
 
     private void NextButton(java.awt.event.ActionEvent evt) {
         currentIndex++;
-        if (currentIndex >= sopir.getSopirData().length) {
+        if (currentIndex >= sopir.getDataKaryawan().length) {
             currentIndex = 0;
         }
         displaySopirData();
@@ -104,14 +107,14 @@ public class ListSopirAvailable extends javax.swing.JFrame {
     private void PrevButton(java.awt.event.ActionEvent evt) {
         currentIndex--;
         if (currentIndex < 0) {
-            currentIndex = sopir.getSopirData().length - 1;
+            currentIndex = sopir.getDataKaryawan().length - 1;
         }
         displaySopirData();
     }
 
     private void displaySopirData() {
-        if (sopir.getSopirData() != null && sopir.getSopirData().length > 0) {
-            String[] dataLines = sopir.getSopirData()[currentIndex].split("<br>");
+        if (sopir.getDataKaryawan() != null && sopir.getDataKaryawan().length > 0) {
+            String[] dataLines = sopir.getDataKaryawan()[currentIndex].split("<br>");
             StringBuilder formattedData = new StringBuilder("<html><h2>Data Sopir</h2><pre>");
             for (String line : dataLines) {
                 formattedData.append(line).append("\n");
@@ -131,9 +134,4 @@ public class ListSopirAvailable extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton NextButton;
-    private javax.swing.JButton BackButton;
-    private javax.swing.JButton PrevButton;
-    private javax.swing.JLabel Label;
 }

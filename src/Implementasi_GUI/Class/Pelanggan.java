@@ -43,15 +43,4 @@ public class Pelanggan {
             e.printStackTrace();
         }
     }
-
-    private void addDataPesanan(String data) {
-        if (dataPesanan == null) {
-            dataPesanan = new String[]{data};
-        } else {
-            String[] newData = new String[dataPesanan.length + 1];
-            System.arraycopy(dataPesanan, 0, newData, 0, dataPesanan.length);
-            newData[dataPesanan.length] = data;
-            dataPesanan = newData;
-        }
-    }
 }

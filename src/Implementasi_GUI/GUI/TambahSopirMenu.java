@@ -5,10 +5,26 @@
 package Implementasi_GUI.GUI;
 import Implementasi_GUI.Class.RuteTravel;
 import Implementasi_GUI.Class.Sopir;
-
 import javax.swing.*;
-import java.io.*;
 public class TambahSopirMenu extends javax.swing.JFrame {
+    private javax.swing.JButton TombolSubmit;
+    private javax.swing.JButton TombolBack;
+    private javax.swing.JComboBox<String> tmbhSopirKelamin;
+    private javax.swing.JComboBox<String> tmbhJenisMobil;
+    private javax.swing.JLabel labelNama;
+    private javax.swing.JLabel labelAlamat;
+    private javax.swing.JLabel labelBiodataSupir;
+    private javax.swing.JLabel labelNoHp;
+    private javax.swing.JLabel labelGender;
+    private javax.swing.JLabel labelLisensi;
+    private javax.swing.JLabel labelJenisMobil;
+    private javax.swing.JLabel labelRute;
+    private javax.swing.JTextField tmbhSupirRC3;
+    private javax.swing.JTextField tmbhSopirAlamat;
+    private javax.swing.JTextField tmbhSopirLisensi;
+    private javax.swing.JTextField tmbhSopirNama;
+    private javax.swing.JTextField tmbhSopirNoHP;
+    private javax.swing.JComboBox<String> RuteTmbhSopir ;
     private Sopir sopir;
     public TambahSopirMenu() {
         setTitle("Biodata Sopir");
@@ -230,10 +246,6 @@ public class TambahSopirMenu extends javax.swing.JFrame {
         sopir.setJenisMobil(jenisMobil);
         sopir.setRute(rute);
         sopir.saveDataSopir();
-
-        AdminScreenMenu adminMenu = new AdminScreenMenu();
-        adminMenu.setVisible(true);
-        this.dispose();
     }
 
     private void tmbhJenisMobilActionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,23 +260,4 @@ public class TambahSopirMenu extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton TombolSubmit;
-    private javax.swing.JButton TombolBack;
-    private javax.swing.JComboBox<String> tmbhSopirKelamin;
-    private javax.swing.JComboBox<String> tmbhJenisMobil;
-    private javax.swing.JLabel labelNama;
-    private javax.swing.JLabel labelAlamat;
-    private javax.swing.JLabel labelBiodataSupir;
-    private javax.swing.JLabel labelNoHp;
-    private javax.swing.JLabel labelGender;
-    private javax.swing.JLabel labelLisensi;
-    private javax.swing.JLabel labelJenisMobil;
-    private javax.swing.JLabel labelRute;
-    private javax.swing.JTextField tmbhSupirRC3;
-    private javax.swing.JTextField tmbhSopirAlamat;
-    private javax.swing.JTextField tmbhSopirLisensi;
-    private javax.swing.JTextField tmbhSopirNama;
-    private javax.swing.JTextField tmbhSopirNoHP;
-    private javax.swing.JComboBox<String> RuteTmbhSopir ;
 }

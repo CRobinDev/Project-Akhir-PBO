@@ -8,6 +8,10 @@ import java.io.*;
 import javax.swing.*;
 import Implementasi_GUI.Class.Karyawan;
 public class ListSemuaKaryawan extends javax.swing.JFrame {
+    private javax.swing.JButton TombolBack;
+    private javax.swing.JButton TombolNextKryawan;
+    private javax.swing.JButton TombolBackKryawan;
+    private javax.swing.JLabel labelDataKryawan;
     private Karyawan karyawan;
     private int currentIndex;
 
@@ -21,7 +25,7 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         labelDataKryawan = new javax.swing.JLabel();
@@ -136,8 +140,4 @@ public class ListSemuaKaryawan extends javax.swing.JFrame {
         });
     }
 
-    private javax.swing.JButton TombolBack;
-    private javax.swing.JButton TombolNextKryawan;
-    private javax.swing.JButton TombolBackKryawan;
-    private javax.swing.JLabel labelDataKryawan;
 }

@@ -5,6 +5,14 @@
 package Implementasi_GUI.GUI;
 
 public class AdminScreenMenu extends javax.swing.JFrame {
+    private javax.swing.JButton BackButton;
+    private javax.swing.JLabel labelAdminMenu;
+    private javax.swing.JButton ListKaryawanButton;
+    private javax.swing.JButton ListKendaraanButton;
+    private javax.swing.JButton ListSopirButton;
+    private javax.swing.JButton TambahKendaraanButton;
+    private javax.swing.JButton TambahSupirButton;
+    private javax.swing.JButton TambahAdminButton;
     public AdminScreenMenu() {
         setTitle("Admin Menu");
         initComponents();
@@ -23,8 +31,6 @@ public class AdminScreenMenu extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
         TambahAdminButton = new javax.swing.JButton();
         ListKendaraanButton = new javax.swing.JButton();
-
-
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,13 +182,4 @@ public class AdminScreenMenu extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton BackButton;
-    private javax.swing.JLabel labelAdminMenu;
-    private javax.swing.JButton ListKaryawanButton;
-    private javax.swing.JButton ListKendaraanButton;
-    private javax.swing.JButton ListSopirButton;
-    private javax.swing.JButton TambahKendaraanButton;
-    private javax.swing.JButton TambahSupirButton;
-    private javax.swing.JButton TambahAdminButton;
 }

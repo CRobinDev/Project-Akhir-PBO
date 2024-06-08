@@ -95,5 +95,4 @@ public class Karyawan {
             dataKaryawan = newData;
         }
     }
-
 }

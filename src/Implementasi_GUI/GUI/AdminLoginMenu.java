@@ -9,6 +9,13 @@ import Implementasi_GUI.Class.Akun;
 import javax.swing.*;
 
 public class AdminLoginMenu extends javax.swing.JFrame {
+
+    private javax.swing.JLabel NameLabel;
+    private javax.swing.JLabel Title;
+    private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JPasswordField getPassword;
+    private javax.swing.JTextField getName;
+    private javax.swing.JButton LoginButton;
     private Akun akunAdmin;
     public AdminLoginMenu() {
         initComponents();
@@ -23,7 +30,7 @@ public class AdminLoginMenu extends javax.swing.JFrame {
         getPassword = new javax.swing.JPasswordField();
         Title = new javax.swing.JLabel();
         PasswordLabel = new javax.swing.JLabel();
-        BackButton = new javax.swing.JButton();
+        JButton backButton = new JButton();
         LoginButton = new javax.swing.JButton();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,9 +45,9 @@ public class AdminLoginMenu extends javax.swing.JFrame {
         PasswordLabel.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         PasswordLabel.setText("Password");
 
-        BackButton.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        BackButton.setText("Back");
-        BackButton.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
@@ -73,7 +80,7 @@ public class AdminLoginMenu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(LoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BackButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(152, 152, 152))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Title)
@@ -95,7 +102,7 @@ public class AdminLoginMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(LoginButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BackButton)
+                .addComponent(backButton)
                 .addGap(19, 19, 19))
         );
         pack();
@@ -106,7 +113,7 @@ public class AdminLoginMenu extends javax.swing.JFrame {
         String username = getName.getText();
         String password = new String(getPassword.getPassword());
         akunAdmin = new Akun(username,password);
-        if (akunAdmin.authenticate(akunAdmin.getUsername(), akunAdmin.getPassword())) {
+        if (akunAdmin.validateUser(akunAdmin.getUsername(), akunAdmin.getPassword())) {
             AdminScreenMenu admScMenu = new AdminScreenMenu();
             admScMenu.setVisible(true);
             this.dispose();
@@ -127,12 +134,4 @@ public class AdminLoginMenu extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton BackButton;
-    private javax.swing.JLabel NameLabel;
-    private javax.swing.JLabel Title;
-    private javax.swing.JLabel PasswordLabel;
-    private javax.swing.JPasswordField getPassword;
-    private javax.swing.JTextField getName;
-    private javax.swing.JButton LoginButton;
 }

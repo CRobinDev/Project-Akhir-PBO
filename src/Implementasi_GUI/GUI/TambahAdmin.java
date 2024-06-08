@@ -7,6 +7,20 @@ import javax.swing.*;
 import java.io.*;
 import Implementasi_GUI.Class.Admin;
 public class TambahAdmin extends javax.swing.JFrame {
+    private javax.swing.JButton TombolSubmit;
+    private javax.swing.JButton TombolBack;
+    private javax.swing.JComboBox<String> ComboGender;
+    private javax.swing.JComboBox<String> ComboDivisi;
+    private javax.swing.JLabel labelNama;
+    private javax.swing.JLabel labelNama2;
+    private javax.swing.JLabel labelBiodataAdmin;
+    private javax.swing.JLabel labelAlamat;
+    private javax.swing.JLabel labelNoHP;
+    private javax.swing.JLabel labelGender;
+    private javax.swing.JLabel labelDivisi;
+    private javax.swing.JTextField namaField;
+    private javax.swing.JTextField alamatField;
+    private javax.swing.JTextField nomorField;
     private Admin admin;
     public TambahAdmin() {
         initComponents();
@@ -22,12 +36,12 @@ public class TambahAdmin extends javax.swing.JFrame {
         TombolBack = new javax.swing.JButton();
         labelBiodataAdmin = new javax.swing.JLabel();
         labelNama2 = new javax.swing.JLabel();
-        tmbhSupirRCnama = new javax.swing.JTextField();
+        namaField = new javax.swing.JTextField();
         labelAlamat = new javax.swing.JLabel();
         labelNoHP = new javax.swing.JLabel();
         labelGender = new javax.swing.JLabel();
-        tmbhSupirRCnama1 = new javax.swing.JTextField();
-        tmbhSupirRCnama2 = new javax.swing.JTextField();
+        alamatField = new javax.swing.JTextField();
+        nomorField = new javax.swing.JTextField();
         ComboGender = new javax.swing.JComboBox<>();
         TombolSubmit = new javax.swing.JButton();
         labelDivisi = new javax.swing.JLabel();
@@ -53,7 +67,9 @@ public class TambahAdmin extends javax.swing.JFrame {
         labelNama2.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelNama2.setText("Nama");
 
-        tmbhSupirRCnama.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
+        namaField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
+        alamatField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
+        nomorField.setFont(new java.awt.Font("ITF Devanagari", 1, 14));
 
         labelAlamat.setFont(new java.awt.Font("ITF Devanagari", 1, 18));
         labelAlamat.setText("Alamat");
@@ -109,15 +125,15 @@ public class TambahAdmin extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(labelNoHP)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(tmbhSupirRCnama2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(nomorField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(labelAlamat)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(tmbhSupirRCnama1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(alamatField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(labelNama2)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(tmbhSupirRCnama, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
@@ -128,15 +144,15 @@ public class TambahAdmin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(labelNama2)
-                                        .addComponent(tmbhSupirRCnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(labelAlamat)
-                                        .addComponent(tmbhSupirRCnama1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(alamatField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(labelNoHP)
-                                        .addComponent(tmbhSupirRCnama2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(nomorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(labelGender)
@@ -169,9 +185,9 @@ public class TambahAdmin extends javax.swing.JFrame {
         this.dispose();
     }
     private void saveAdminData() {
-        String nama = tmbhSupirRCnama.getText();
-        String alamat = tmbhSupirRCnama1.getText();
-        String nomorHp = tmbhSupirRCnama2.getText();
+        String nama = namaField.getText();
+        String alamat = alamatField.getText();
+        String nomorHp = nomorField.getText();
         String jenisKelamin = ComboGender.getSelectedItem().toString();
         String divisi = ComboDivisi.getSelectedItem().toString();
 
@@ -187,19 +203,4 @@ public class TambahAdmin extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton TombolSubmit;
-    private javax.swing.JButton TombolBack;
-    private javax.swing.JComboBox<String> ComboGender;
-    private javax.swing.JComboBox<String> ComboDivisi;
-    private javax.swing.JLabel labelNama;
-    private javax.swing.JLabel labelNama2;
-    private javax.swing.JLabel labelBiodataAdmin;
-    private javax.swing.JLabel labelAlamat;
-    private javax.swing.JLabel labelNoHP;
-    private javax.swing.JLabel labelGender;
-    private javax.swing.JLabel labelDivisi;
-    private javax.swing.JTextField tmbhSupirRCnama;
-    private javax.swing.JTextField tmbhSupirRCnama1;
-    private javax.swing.JTextField tmbhSupirRCnama2;
 }

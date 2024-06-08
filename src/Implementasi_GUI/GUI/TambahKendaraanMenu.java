@@ -7,6 +7,21 @@ import javax.swing.*;
 import Implementasi_GUI.Class.Kendaraan;
 import Implementasi_GUI.Class.RuteTravel;
 public class TambahKendaraanMenu extends javax.swing.JFrame {
+    private javax.swing.JButton TombolSubmit;
+    private javax.swing.JButton TombolBack;
+    private javax.swing.JComboBox<String> ComboJenisMobil;
+    private javax.swing.JLabel labelNoPlat;
+    private javax.swing.JLabel labelMerk;
+    private javax.swing.JLabel labelTambahkanKdr;
+    private javax.swing.JLabel labelWarna;
+    private javax.swing.JLabel labelTahun;
+    private javax.swing.JLabel labelJenis;
+    private javax.swing.JTextField merkField;
+    private javax.swing.JTextField nomorPlatField;
+    private javax.swing.JTextField warnaField;
+    private javax.swing.JTextField tahunField;
+    private javax.swing.JLabel RuteLabel;
+    private javax.swing.JComboBox<String> Rute;
     public TambahKendaraanMenu() {
         setTitle("Informasi Kendaraan");
         initComponents();
@@ -223,20 +238,4 @@ public class TambahKendaraanMenu extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton TombolSubmit;
-    private javax.swing.JButton TombolBack;
-    private javax.swing.JComboBox<String> ComboJenisMobil;
-    private javax.swing.JLabel labelNoPlat;
-    private javax.swing.JLabel labelMerk;
-    private javax.swing.JLabel labelTambahkanKdr;
-    private javax.swing.JLabel labelWarna;
-    private javax.swing.JLabel labelTahun;
-    private javax.swing.JLabel labelJenis;
-    private javax.swing.JTextField merkField;
-    private javax.swing.JTextField nomorPlatField;
-    private javax.swing.JTextField warnaField;
-    private javax.swing.JTextField tahunField;
-    private javax.swing.JLabel RuteLabel;
-    private javax.swing.JComboBox<String> Rute;
 }

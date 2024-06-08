@@ -84,7 +84,7 @@ public class Sopir extends Karyawan {
         this.rute = rute;
     }
 
-    public String[] getSopirData() {
+    public String[] getDataKaryawan() {
         return sopirData;
     }
 
@@ -95,7 +95,10 @@ public class Sopir extends Karyawan {
     public void saveDataSopir() {
         try (FileWriter writerSopir = new FileWriter("sopir.txt", true);
              FileWriter writerKaryawan = new FileWriter("karyawan.txt", true)) {
-
+            writerSopir.write("Nama          : " + getNama() + "\n");
+            writerSopir.write("Alamat        : " + getAlamat() + "\n");
+            writerSopir.write("Nomor HP      : " + getNoHP() + "\n");
+            writerSopir.write("Jenis Kelamin : " + getJenisKelamin() + "\n");
             writerSopir.write("Lisensi       : " + lisensi + "\n");
             writerSopir.write("Jenis Mobil   : " + jenisMobil + "\n");
             writerSopir.write("Rute          : " + rute + "\n");
@@ -115,7 +118,7 @@ public class Sopir extends Karyawan {
             JOptionPane.showMessageDialog(null, "Gagal menyimpan biodata sopir.");
         }
     }
-    public void readDataSopir() {
+    public void readDataKaryawan() {
         try (BufferedReader reader = new BufferedReader(new FileReader("Sopir.txt"))) {
             StringBuilder sopir = new StringBuilder();
             String line;

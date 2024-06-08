@@ -5,6 +5,10 @@ import javax.swing.*;
 import Implementasi_GUI.Class.Kendaraan;
 
 public class ListKendaraanAvailable extends javax.swing.JFrame {
+    private javax.swing.JButton Back;
+    private javax.swing.JButton Next;
+    private javax.swing.JButton Prev;
+    private javax.swing.JLabel Label;
     private Kendaraan kendaraan;
     private int currentIndex;
 
@@ -135,9 +139,4 @@ public class ListKendaraanAvailable extends javax.swing.JFrame {
             new ListKendaraanAvailable().setVisible(true);
         });
     }
-
-    private javax.swing.JButton Back;
-    private javax.swing.JButton Next;
-    private javax.swing.JButton Prev;
-    private javax.swing.JLabel Label;
 }

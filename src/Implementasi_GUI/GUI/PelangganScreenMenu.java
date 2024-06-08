@@ -408,13 +408,13 @@ public class PelangganScreenMenu extends javax.swing.JFrame {
         updateDriverStatus(nama);
         updateKendaraanStatus(nomorPlat);
         try (FileWriter writer = new FileWriter(username + ".txt", true)) {
-            writer.write("Username         : " + username + "\n");
-            writer.write("Nama Sopir       : " + nama + "\n");
-            writer.write("Jenis Mobil      : " + jenisMerk + "\n");
-            writer.write("Nomor Plat       : " + nomorPlat + "\n");
-            writer.write("Rute             : " + rute + "\n");
-            writer.write("Lama Sewa        : " + lamaSewa + " hari\n");
-            writer.write("Tanggal Penyewaan: " + tanggalPenyewaan + "\n\n");
+            writer.write("Username          : " + username + "\n");
+            writer.write("Nama Sopir        : " + nama + "\n");
+            writer.write("Jenis Mobil       : " + jenisMerk + "\n");
+            writer.write("Nomor Plat        : " + nomorPlat + "\n");
+            writer.write("Rute              : " + rute + "\n");
+            writer.write("Lama Sewa         : " + lamaSewa + " hari\n");
+            writer.write("Tanggal Penyewaan : " + tanggalPenyewaan + "\n\n");
 
             JOptionPane.showMessageDialog(this, "Data pemesanan berhasil disimpan.");
 

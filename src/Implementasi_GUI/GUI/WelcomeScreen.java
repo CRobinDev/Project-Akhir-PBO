@@ -4,6 +4,10 @@
  */
 package Implementasi_GUI.GUI;
 public class WelcomeScreen extends javax.swing.JFrame {
+    private javax.swing.JButton AdminButton;
+    private javax.swing.JButton DaftarAkun;
+    private javax.swing.JLabel Title;
+    private javax.swing.JButton PelangganButton;
     public WelcomeScreen() {
         initComponents();
     }
@@ -122,9 +126,4 @@ public class WelcomeScreen extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton AdminButton;
-    private javax.swing.JButton DaftarAkun;
-    private javax.swing.JLabel Title;
-    private javax.swing.JButton PelangganButton;
 }

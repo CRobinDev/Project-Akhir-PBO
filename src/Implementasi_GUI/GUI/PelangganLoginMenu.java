@@ -29,7 +29,6 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
         getPassword = new javax.swing.JPasswordField();
         JLabel title = new JLabel();
         JLabel passwordLabel = new JLabel();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
         JButton backButton = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,7 +115,7 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
         String username = getName.getText();
         String password = new String(getPassword.getPassword());
         akunPelanggan = new Akun(username, password);
-        if (akunPelanggan.authenticate(akunPelanggan.getUsername(), akunPelanggan.getPassword())) {
+        if (akunPelanggan.validateUser(akunPelanggan.getUsername(), akunPelanggan.getPassword())) {
             setUsername(username);
             PelangganScreenMenu plgScMenu = new PelangganScreenMenu(this);
             plgScMenu.setVisible(true);
@@ -139,7 +138,7 @@ public class PelangganLoginMenu extends javax.swing.JFrame {
         return name;
     }
 
-    public static void main(String args[]) {
+    public static void main(String []args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PelangganLoginMenu().setVisible(true);

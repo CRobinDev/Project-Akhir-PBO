@@ -27,10 +27,10 @@ public class Akun {
     public void setUsername (String username){
         this.username = username;
     }
-    public boolean authenticate(String username, String password) {
+    private boolean authenticate(String username, String password) {
         return this.username.equals(username) && this.password.equals(password);
     }
-    private boolean validateUser(String username, String password) {
+    public boolean validateUser(String username, String password) {
         try (BufferedReader br = new BufferedReader(new FileReader("akun.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {

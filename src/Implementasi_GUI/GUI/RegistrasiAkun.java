@@ -11,6 +11,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class RegistrasiAkun extends javax.swing.JFrame {
+    private javax.swing.JButton Submit;
+    private javax.swing.JLabel Judul;
+    private javax.swing.JLabel NameLabel;
+    private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JTextField NameField;
+    private javax.swing.JPasswordField PasswordField;
     private Akun akun;
     public RegistrasiAkun() {
         initComponents();
@@ -117,11 +123,4 @@ public class RegistrasiAkun extends javax.swing.JFrame {
             }
         });
     }
-
-    private javax.swing.JButton Submit;
-    private javax.swing.JLabel Judul;
-    private javax.swing.JLabel NameLabel;
-    private javax.swing.JLabel PasswordLabel;
-    private javax.swing.JTextField NameField;
-    private javax.swing.JPasswordField PasswordField;
 }
